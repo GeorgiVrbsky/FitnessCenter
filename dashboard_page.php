@@ -8,6 +8,7 @@ if (!$user_id) {
     header("Location: login.php");
     exit();
 }
+echo $_SESSION["jmeno"]; //DEV
 
 // Získání uživatele
 $user_stmt = $db->query("SELECT * FROM user WHERE id = ?", [$user_id]);
@@ -15,16 +16,16 @@ $user = $user_stmt->fetch_assoc();
 
 // Získání trenéra
 $trener = null;
-if (!empty($user["USER_idUSER"])) {
-    $trener_stmt = $db->query("SELECT jmeno, prijmeni FROM user WHERE id = ?", [$user["USER_idUSER"]]);
+if (!empty($user["user_idUser"])) {
+    $trener_stmt = $db->query("SELECT jmeno, prijmeni FROM USER WHERE id = ?", [$user["user_idUser"]]);
     $trener = $trener_stmt->fetch_assoc();
 }
 
 // Získání cviků podle Role
-$cviky = $db->query("SELECT Nazev FROM cviky WHERE Role_idRole = ?", [$user["Role_idRole"]]);
+$cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ?", [$user["role_idRole"]]);
 
 // Získání týdenních parametrů
-$parametry = $db->query("SELECT * FROM parametry_uzivatele WHERE USER_idUSER = ? ORDER BY cislo_tydne ASC LIMIT 4", [$user_id]);
+$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY cislo_tydne ASC LIMIT 4", [$user_id]);
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +74,7 @@ if ($trener) {
 <ul>
 <?php
 while ($cvik = $cviky->fetch_assoc()) {
-    echo "<li>" . htmlspecialchars($cvik["Nazev"]) . "</li>";
+    echo "<li>" . htmlspecialchars($cvik["nazev"]) . "</li>";
 }
 ?>
 </ul>

@@ -20,19 +20,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
+    try{
     // Najdeme roli podle preferencí
-    $select = "SELECT id FROM role WHERE Nazev = ? AND Zamereni = ? AND Misto = ?";
+    $select = "SELECT id FROM ROLE WHERE nazev = ? AND zamereni = ? AND misto = ?";
     $role_result = $db->query($select, ["Klient", $zamereni, $misto]);
+    }catch(Exception $e){
+        echo $e->getMessage();
+    }
 
     if ($role = $role_result->fetch_assoc()) {
         $role_id = $role["id"];
-        $db->query("UPDATE user SET Role_idRole = ? WHERE id = ?", [$role_id, $user_id]);
+        $db->query("UPDATE user SET role_idRole = ? WHERE id = ?", [$role_id, $user_id]);
         echo "<p style='color: green;'>Úspěšně uloženo!</p>";
         
         try{
             // Uložíme parametry
             $params = [1, $vyska, $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
-            $insert = "INSERT INTO parametry_uzivatele (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, USER_idUSER) VALUES (?, ?, ?, ?, ?, ?)";
+            $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, USER_idUSER) VALUES (?, ?, ?, ?, ?, ?)";
             $db->query($insert, $params);
         
             } catch (Exception $e) {
@@ -68,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <label>Zaměření</label><br>
     <select name="zamereni" required>
-        <option value="Nabirani Svalu">Nabírání Svalů</option>
+        <option value="Nabirani_Svalu">Nabírání Svalů</option>
         <option value="Hubnuti">Hubnutí</option>
         <option value="Kondice">Kondice</option>
     </select><br><br>
