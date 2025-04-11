@@ -1,3 +1,5 @@
 
 dodelat tydenni cviky, kde se bude tvorit cvicici plan
 dodelat, ze muzu psat desetinna cisla do formularu
+KALKULACKY pridat i vysvetleni co to meri
+v databaze_save nejsou inserty treneru
