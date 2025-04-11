@@ -19,6 +19,16 @@ class Database{
         
     }
     
+    
+ /**
+ * Spustí SQL dotaz s parametry.
+ *
+ * @param string $query SQL dotaz s otazníky jako placeholdery
+ * @param array $params Parametry pro bind
+ * @return mysqli_result|bool Vrací výsledky SELECT dotazu nebo true/false pro INSERT/UPDATE/DELETE
+ */
+
+
     public function query($query, $params = []){
         try{
             $stmt = $this->conn->prepare($query);
