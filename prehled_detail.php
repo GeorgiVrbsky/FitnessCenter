@@ -11,7 +11,7 @@ if (!$user_id) {
 $week = 1;
 echo $_SESSION["jmeno"]; //DEV
 
-$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY cislo_tydne ASC", [$user_id]);
+$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne ASC", [$user_id]);
 
 $paramData = [];
 $maxWeek = 0;

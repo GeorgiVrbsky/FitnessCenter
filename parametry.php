@@ -32,13 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($role = $role_result->fetch_assoc()) {
         $role_id = $role["id"];
-        $db->query("UPDATE user SET role_idRole = ? WHERE id = ?", [$role_id, $user_id]);
+        $db->query("UPDATE USER SET role_idRole = ? WHERE id = ?", [$role_id, $user_id]);
         echo "<p style='color: green;'>Úspěšně uloženo!</p>";
         
         try{
             // Uložíme parametry
             $params = [1, $vyska, $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
-            $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, USER_idUSER) VALUES (?, ?, ?, ?, ?, ?)";
+            $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, user_idUser) VALUES (?, ?, ?, ?, ?, ?)";
             $db->query($insert, $params);
         
             } catch (Exception $e) {

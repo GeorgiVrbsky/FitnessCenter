@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         $query = "
-            INSERT INTO user (
-                jmeno, prijmeni, heslo, email, telefon, datum_narozeni, pohlavi, Role_idRole, USER_idUser
+            INSERT INTO USER (
+                jmeno, prijmeni, heslo, email, telefon, datum_narozeni, pohlavi, role_idRole, user_idUser
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ";
 

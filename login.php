@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Jeden dotaz – načteme vše, co potřebujeme
-    $query = "SELECT id, jmeno, heslo FROM user WHERE email = ?";
+    $query = "SELECT id, jmeno, heslo FROM USER WHERE email = ?";
     $result = $db->query($query, [$EMAIL]);
 
     if ($result && $result->num_rows === 1) {

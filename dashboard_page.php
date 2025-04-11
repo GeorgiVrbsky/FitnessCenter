@@ -11,7 +11,7 @@ if (!$user_id) {
 echo $_SESSION["jmeno"]; //DEV
 
 // Získání uživatele
-$user_stmt = $db->query("SELECT * FROM user WHERE id = ?", [$user_id]);
+$user_stmt = $db->query("SELECT * FROM USER WHERE id = ?", [$user_id]);
 $user = $user_stmt->fetch_assoc();
 
 // Získání trenéra
@@ -25,7 +25,7 @@ if (!empty($user["user_idUser"])) {
 $cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ?", [$user["role_idRole"]]);
 
 // Získání týdenních parametrů
-$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY cislo_tydne ASC LIMIT 4", [$user_id]);
+$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne ASC LIMIT 4", [$user_id]);
 ?>
 
 <!DOCTYPE html>
