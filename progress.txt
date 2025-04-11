@@ -1,2 +1,3 @@
-dodelat detailnejsi informace o postupu
+
 dodelat tydenni cviky, kde se bude tvorit cvicici plan
+dodelat, ze muzu psat desetinna cisla do formularu

@@ -100,6 +100,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </form>
 
+<a href="dashboard_page.php"><button>Back</button></a>
+
 </body>
 
 </html>

@@ -36,6 +36,10 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
 </head>
 <body>
 
+<p style="text-align: right;">
+    <a href="logout.php" style="color: red; font-weight: bold;">Odhlásit se</a>
+</p>
+
 <h1>Týdenní postup</h1>
 
 <!-- Týdenní přehled -->
