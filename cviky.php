@@ -4,7 +4,9 @@ include "db_conn.php";
 include "cviky_algo.php";
 
 
-$CVIKY_PLAN = [];
+$POCET_DNI = 1;
+$ZAMERENI = "";
+$MISTO = "";
 
 // Ověření přihlášení
 $user_id = $_SESSION["user_id"] ?? null;
@@ -21,40 +23,15 @@ $stmt = "
 $ROLEZAMERENI = $db->query($stmt, [$user_id]);
 
 if ($roleRow = $ROLEZAMERENI->fetch_assoc()) {
-    $zamereni = $roleRow["zamereni"];
-    $misto = $roleRow["misto"];
+    $ZAMERENI = $roleRow["zamereni"];
+    $MISTO = $roleRow["misto"];
 } else {
     echo "Nelze načíst zaměření nebo místo.";
     exit();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"]) && isset( $_POST["cvicebniPlan"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
     $POCET_DNI = $_POST["pocetDni"];
-    $CVICEBNI_PLAN = $_POST["cvicebniPlan"];
-
-    
-    switch ($CVICEBNI_PLAN) {
-        case "PPL":
-            {
-                $CVIKY_PLAN = PPL();
-                break;
-            }
-        case "fullBody":
-            {
-                $CVIKY_PLAN = FullBody();
-                break;
-            }
-        case "broSplit":
-            {
-                $CVIKY_PLAN = BroSplit();
-                break;
-            }
-        default:
-            {
-                echo "Neco se pokazilo";
-            }              
-    }
-
 }
 
 ?>
@@ -79,20 +56,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"]) && isset(
         <option value="7">7x tydne</option>
     </select><br>
 
-    <label>Jaky cvicebni plan chces nasledovat?</label><br>
-    <select name="cvicebniPlan" required>
-        <option value="fullBody">Full Body</option>
-        <option value="PPL">Push Pull Legs</option>
-        <option value="broSplit">Bro Split</option>
-    </select><br><br>
-
     <button type="submit">Dej mi plan</button>
 
 </form>
 
 <?php
 
-ShowPlan($CVIKY_PLAN);
+if(isset($_POST["pocetDni"])){ 
+CvicebniPlan($db,$POCET_DNI, $ZAMERENI, $MISTO);
+}
 ?>
     
 </body>
