@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
     <title>Cviky</title>
 </head>
 <body>
-
+<p>Naplnit databazi vice cviky, dojdou pri vice dnech !!!</p>
 <form method="post">
     <label>Kolikrat tydne chcete cvicit?</label><br>
     <select name="pocetDni" required>
@@ -66,6 +66,8 @@ if(isset($_POST["pocetDni"])){
 CvicebniPlan($db,$POCET_DNI, $ZAMERENI, $MISTO);
 }
 ?>
+
+<a href="dashboard_page.php"><button>ZPET</button></a>
     
 </body>
 </html>
