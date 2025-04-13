@@ -11,7 +11,7 @@ $MISTO = "";
 // Ověření přihlášení
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: login.php");
+    header("Location: login_page.php");
     exit();
 }
 $stmt = "

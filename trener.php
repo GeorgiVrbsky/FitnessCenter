@@ -2,14 +2,13 @@
 include "db_conn.php";
 session_start();
 
-echo $_SESSION["jmeno"];
-
 $user_id = $_SESSION["user_id"] ?? null;
-
 if (!$user_id) {
-    echo "Nepřihlášený uživatel.";
+    header("Location: login_page.php");
     exit();
 }
+
+echo $_SESSION["jmeno"];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["vybrany_trener"])) {
     $trener_id = $_POST["vybrany_trener"];

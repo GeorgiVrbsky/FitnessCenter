@@ -4,7 +4,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $EMAIL = trim($_POST["email"] ?? "");
-    $HESLO = trim($_POST["heslo"] ?? "");
+    $HESLO = $_POST["heslo"];
 
     if (empty($EMAIL) || empty($HESLO)) {
         echo "Zadejte e-mail i heslo.";

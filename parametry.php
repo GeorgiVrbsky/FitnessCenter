@@ -1,6 +1,13 @@
 <?php
 include "db_conn.php";
 session_start();
+
+$user_id = $_SESSION["user_id"] ?? null;
+if (!$user_id) {
+    header("Location: login_page.php");
+    exit();
+}
+
 //!!ochrana, aby se sem nedostal nikdo jinak nez z registrace
 //!!zabranit, aby uzivatel nemohl dat, ze vazi 0kg nebo ze ma obvody 0cm
 echo $_SESSION["jmeno"];//tohle potom odstranit, tohle je pro DEV
