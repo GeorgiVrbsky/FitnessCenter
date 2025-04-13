@@ -8,19 +8,13 @@ if (!isset($_SESSION["user_id"])) {
     exit();
 }
 
-$trener_id = $_SESSION["user_id"];
-
-// Zjisti, zda je uživatel trenér
-$checkRole = $db->query("SELECT r.nazev FROM USER u JOIN ROLE r ON u.role_idRole = r.id WHERE u.id = ?", params: [$trener_id]);
-$roleRow = $checkRole->fetch_assoc();
-
-if (!$roleRow || $roleRow["nazev"] !== "Trener") {
-    echo "Nemáte oprávnění pro přístup k této stránce.";
+if(!$_SESSION["role"] === "Trener"){
+    echo "nemate opravneni k teto strance";
     exit();
 }
 
 // Získej všechny klienty přiřazené tomuto trenérovi
-$klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = ?", [$trener_id]);
+$klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = ?", [$_SESSION["user_id"]]);
 ?>
 
 <!DOCTYPE html>

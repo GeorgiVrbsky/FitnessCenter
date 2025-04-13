@@ -36,8 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $role = $roleResult->fetch_assoc();
 
                 if ($role["nazev"] === "Trener") {
+                    $_SESSION["role"] = $role["Trener"];
                     header("Location: trener_dashboard.php");
-                } else {
+                } else if($role["nazev"] === "Klient"){
                     header("Location: index.php");
                 }
                 exit();
