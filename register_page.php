@@ -17,7 +17,7 @@
     <input type="email" id="email" name="email" required><br>
 
     <label for="telefon">Telefon:</label><br>
-    <input type="text" id="telefon" name="telefon" required><br>
+    <input type="number" id="telefon" name="telefon" required><br>
 
     <label for="datum_narozeni">Datum narozeni:</label><br>
     <input type="date" id="datum_narozeni" name="datum_narozeni" required><br><br>
