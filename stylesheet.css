@@ -1,0 +1,106 @@
+/* Reset stylů pro odstranění výchozích okrajů a paddingu */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Základní nastavení pro tělo stránky */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Světle šedé pozadí */
+    color: #333; /* Tmavě šedý text */
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Hlavní nadpis */
+  h1, h2, h3 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  
+  /* Odkazy */
+  a {
+    color: #007BFF; /* Modré odkazy */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Podtržení při najetí */
+  }
+  
+  /* Seznamy */
+  ul {
+    list-style: none; /* Odstranění odrážek */
+  }
+  
+  li {
+    margin-bottom: 10px; /* Větší mezery mezi položkami */
+  }
+  
+  /* Tlačítka */
+  button {
+    background-color: #007BFF; /* Modré tlačítko */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Tmavší modrá při najetí */
+  }
+  
+  /* Formuláře */
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  input[type="submit"] {
+    width: auto;
+    background-color: #28a745; /* Zelené tlačítko */
+    color: white;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #218838; /* Tmavší zelená při najetí */
+  }
+  
+  /* Karty pro obsah */
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card h2 {
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    color: #666;
+    font-size: 1rem;
+  }
+  
+  /* Reakce na malé obrazovky */
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  

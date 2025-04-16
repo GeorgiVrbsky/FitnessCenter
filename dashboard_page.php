@@ -33,6 +33,7 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
