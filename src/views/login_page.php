@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přihlášení</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../../public/stylesheet.css">
 </head>
 <body>
     
-<?php include 'navbar.html'; ?>
+<?php include __DIR__ . '/../../public/components/navbar.html'; ?>
 
 <div class="container">
     <div class="card">
         <h2>Přihlášení</h2>
-        <form method="post" action="login.php">
+        <form method="post" action="/src/controllers/LoginController.php">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" required><br>
 
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<?php include 'footer.html'; ?>
+<?php include __DIR__ . '/../../public/components/footer.html'; ?>
 
 </body>
 </html>
