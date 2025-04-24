@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form method="post" action="register_user.php">
+<form method="post" action="/../../src/controllers/RegisterController.php">
 
     <label for="jmeno">Jmeno: </label><br>
     <input type="text" id="jmeno" name="jmeno" required><br>

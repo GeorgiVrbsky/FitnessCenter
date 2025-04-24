@@ -1,10 +1,10 @@
 <?php
 session_start();
-include "db_conn.php";
+include __DIR__ . '/../../src/database/db_conn.php';
 
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: login_page.php");
+    header("Location: /../../src/views/login_page.php");
     exit();
 }
 
@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </form>
 
-<a href="dashboard_page.php"><button>Back</button></a>
+<a href="/src/views/dashboard_page.php"><button>Back</button></a>
 
 </body>
 

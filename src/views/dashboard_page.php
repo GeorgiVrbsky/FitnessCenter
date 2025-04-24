@@ -1,11 +1,11 @@
 <?php
 session_start();
-include "db_conn.php";
+include __DIR__ . '/../../src/database/db_conn.php';
 
 // Zkontroluj přihlášení
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: login_page.php");
+    header("Location: /../../src/views/login_page.php");
     exit();
 }
 echo $_SESSION["jmeno"]; //DEV
@@ -33,13 +33,11 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/../../public/stylesheet.css">
 </head>
 <body>
 
-<p style="text-align: right;">
-    <a href="logout.php" style="color: red; font-weight: bold;">Odhlásit se</a>
-</p>
+<?php include __DIR__ . '/../../public/components/navbar.html'; ?>
 
 <h1>Týdenní postup</h1>
 
@@ -62,7 +60,7 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
     ?>
 </div>
 
-<p><a href="prehled_detail.php">Detailnější informace o postupu</a></p>
+<p><a href="/../../src/views/prehled_page.php">Detailnější informace o postupu</a></p>
 
 <!-- Trenér -->
 <h2>Trenér</h2>
@@ -83,7 +81,7 @@ while ($cvik = $cviky->fetch_assoc()) {
 }
 ?>
 </ul>
-<p><a href="cviky.php">Přejít na detailnější vaše cviky</a></p>
+<p><a href="/../../src/views/cviky_page.php">Přejít na detailnější vaše cviky</a></p>
 
 <!-- Kalkulačka kalorií -->
 <h2>Kalkulačka kalorií</h2>
@@ -98,7 +96,7 @@ while ($cvik = $cviky->fetch_assoc()) {
 </form>
 <div id="vysledek"></div>
 
-<p><a href="kalkulacky.php">Přejít na více kalkulaček</a></p>
+<p><a href="/../../src/views/kalkulacky_page.php">Přejít na více kalkulaček</a></p>
 
 <script>
 function vypocitejKalorie() {

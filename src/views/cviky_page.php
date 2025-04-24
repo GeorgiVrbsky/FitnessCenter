@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "db_conn.php";
-include "cviky_algo.php";
+include __DIR__ . '/../../src/database/db_conn.php';
+include __DIR__ . '/../../src/controllers/CvikyController.php';
 
 
 $POCET_DNI = 1;
@@ -11,7 +11,7 @@ $MISTO = "";
 // Ověření přihlášení
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: login_page.php");
+    header("Location: /../../src/views/login_page.php");
     exit();
 }
 $stmt = "
@@ -68,7 +68,7 @@ CvicebniPlan($db,$POCET_DNI, $ZAMERENI, $MISTO);
 }
 ?>
 
-<a href="dashboard_page.php"><button>ZPET</button></a>
+<a href="/../../src/views/dashboard_page.php"><button>ZPET</button></a>
     
 </body>
 </html>

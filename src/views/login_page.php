@@ -13,7 +13,7 @@
 <div class="container">
     <div class="card">
         <h2>Přihlášení</h2>
-        <form method="post" action="/src/controllers/LoginController.php">
+        <form action="/src/controllers/LoginController.php" method="post">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" required><br>
 

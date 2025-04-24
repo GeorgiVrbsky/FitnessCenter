@@ -37,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if ($role["nazev"] === "Trener") {
                     $_SESSION["role"] = $role["Trener"];
-                    header("Location: trener_dashboard.php");
+                    header("Location: /../../src/views/dashboardTrener_page.php");
                 } else if($role["nazev"] === "Klient"){
-                    header("Location: index.php");
+                    header("Location: /../../public/index.php");
                 }
                 exit();
             } else {

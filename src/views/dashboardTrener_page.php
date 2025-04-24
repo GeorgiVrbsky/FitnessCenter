@@ -1,10 +1,10 @@
 <?php
-include "db_conn.php";
+include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
 // Zkontroluj přihlášení a roli
 if (!isset($_SESSION["user_id"])) {
-    header("Location: login_page.php");
+    header("Location: /../../src/views/login_page.php");
     exit();
 }
 
@@ -30,9 +30,7 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
 </head>
 <body>
 
-<p style="text-align: right;">
-    <a href="logout.php" style="color: red; font-weight: bold;">Odhlásit se</a>
-</p>
+<?php include __DIR__ . '/../../public/components/navbar.html'; ?>
 
 <h1>Vaši cvičenci</h1>
 
