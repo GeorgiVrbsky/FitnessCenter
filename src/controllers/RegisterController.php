@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../../src/database/db_conn.php';
+include __DIR__ . '/~georgivrbsky/src/database/db_conn.php';
 
 session_start();
 
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($result) {
             $_SESSION["user_id"] = $db->lastInsertId();
             $_SESSION["jmeno"] = $JMENO;
-            header("Location: /../../src/views/parametry_page.php");
+            header("Location: /~georgivrbsky/src/views/parametry_page.php");
             exit();
         } else {
             echo "Chyba při ukládání do databáze.";

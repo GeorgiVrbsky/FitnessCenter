@@ -1,10 +1,10 @@
 <?php
 session_start();
-$user_id = $_SESSION["user_id"] ?? null;
+/*$user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
     header("Location: login_page.php");
     exit();
-}
+}*/
 ?>
 
 

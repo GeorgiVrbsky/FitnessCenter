@@ -2,12 +2,12 @@
 
 session_start();
 
-if(!isset($_SESSION["user_id"])){
-    header("Location: /src/views/login_page.php");
+if (!isset($_SESSION["user_id"])) {
+    header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
-}else{
+} else {
     echo "Ahoooj " . $_SESSION["jmeno"];
-    header("Location: /src/views/dashboard_page.php");
+    header("Location: /~georgivrbsky/src/views/dashboard_page.php");
+    exit();
 }
-
 ?>

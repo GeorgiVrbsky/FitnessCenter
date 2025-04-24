@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../../src/database/db_conn.php';
+include __DIR__ . '/~georgivrbsky/src/database/db_conn.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -37,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if ($role["nazev"] === "Trener") {
                     $_SESSION["role"] = $role["Trener"];
-                    header("Location: /../../src/views/dashboardTrener_page.php");
+                    header("Location: /~georgivrbsky/src/views/dashboardTrener_page.php");
                 } else if($role["nazev"] === "Klient"){
-                    header("Location: /../../public/index.php");
+                    header("Location: /~georgivrbsky/public/index.php");
                 }
                 exit();
             } else {
