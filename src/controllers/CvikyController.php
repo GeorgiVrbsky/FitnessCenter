@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/~georgivrbsky/src/database/db_conn.php';
+include __DIR__ . '/../../src/database/db_conn.php';
 
 function CvicebniPlan($db, $POCET_DNI, $ZAMERENI, $MISTO) {
     // 1. Získání náhodně seřazených cviků podle zaměření a místa

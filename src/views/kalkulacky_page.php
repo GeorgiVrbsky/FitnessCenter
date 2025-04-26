@@ -1,10 +1,10 @@
 <?php
 session_start();
-/*$user_id = $_SESSION["user_id"] ?? null;
+$user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: login_page.php");
+    header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
-}*/
+}
 ?>
 
 
@@ -159,7 +159,7 @@ if (!$user_id) {
     </div>
 
     <!-- Tlačítko pro návrat na jinou stránku -->
-    <button class="back-button" onclick="window.location.href='dashboard_page.php';">Zpět</button>
+    <button class="back-button" onclick="window.location.href='/~georgivrbsky/src/views/dashboard_page.php';">Zpět</button>
 
     <script>
         // Kalkulačka pro BMI

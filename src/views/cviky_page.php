@@ -1,7 +1,8 @@
 <?php
 session_start();
-include __DIR__ . '/~georgivrbsky/src/database/db_conn.php';
-include __DIR__ . '/~georgivrbsky/src/controllers/CvikyController.php';
+include __DIR__ . '/../../src/database/db_conn.php';
+
+include __DIR__ . '/../../src/controllers/CvikyController.php';
 
 
 $POCET_DNI = 1;
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cviky</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
 <body>
 <p>Naplnit databazi vice cviky, dojdou pri vice dnech !!!</p>

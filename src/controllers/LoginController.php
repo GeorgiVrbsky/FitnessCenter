@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/~georgivrbsky/src/database/db_conn.php';
+include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

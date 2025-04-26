@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrace</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 
 
 </head>
 <body>
 
-<form method="post" action="/../../src/controllers/RegisterController.php">
+<form method="post" action="/~georgivrbsky/src/controllers/RegisterController.php">
 
     <label for="jmeno">Jmeno: </label><br>
     <input type="text" id="jmeno" name="jmeno" required><br>

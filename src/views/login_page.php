@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přihlášení</title>
-    <link rel="stylesheet" href="../../public/stylesheet.css">
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
 <body>
     
@@ -22,7 +22,7 @@
 
             <button type="submit">Odeslat</button>
         </form>
-        <p>Nemáš účet? <a href="register_page.php">Registruj se zde</a></p>
+        <p>Nemáš účet? <a href="/~georgivrbsky/src/views/register_page.php">Registruj se zde</a></p>
     </div>
 </div>
 

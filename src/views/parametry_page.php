@@ -4,7 +4,7 @@ session_start();
 
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: /../../src/views/login_page.php");
+    header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
-        header("Location: /../../src/views/trenerVyber_page.php");
+        header("Location: /~georgivrbsky/src/views/trenerVyber_page.php");
         exit();
     } else {
         echo "<p style='color: red;'>Nebyla nalezena odpovídající role.</p>";
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parametry</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
 <body>
 <!-- HTML Formulář -->

@@ -4,7 +4,7 @@ session_start();
 
 // Zkontroluj přihlášení a roli
 if (!isset($_SESSION["user_id"])) {
-    header("Location: /../../src/views/login_page.php");
+    header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
 

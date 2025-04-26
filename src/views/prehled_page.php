@@ -4,7 +4,7 @@ include __DIR__ . '/../../src/database/db_conn.php';
 
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
-    header("Location: /../../src/views/login_page.php");
+    header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
 
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přehled parametrů</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 
 </head>
 
@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </form>
 
-<a href="/src/views/dashboard_page.php"><button>Back</button></a>
+<a href="/~georgivrbsky/src/views/dashboard_page.php"><button>Back</button></a>
 
 </body>
 
