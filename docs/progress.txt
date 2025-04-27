@@ -1,1 +1,2 @@
 <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+upravit cviky, aby se zobrazovali jako grid a ne jako sloupec

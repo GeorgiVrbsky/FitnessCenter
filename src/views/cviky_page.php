@@ -85,6 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
             </div>
         </div>
     </div>
-</main>    
+</main>
+
+<footer>
+    <?php include __DIR__ . '/../../public/components/footer.html'; ?>
+</footer>
 </body>
 </html>

@@ -25,10 +25,12 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
     <title>Trenérský Dashboard</title>
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css"> <!-- Odkaz na externí stylesheet -->
 </head>
-<body>
+<body class="dashboard-body">
+<header>
+    <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+</header>
 
-<?php include __DIR__ . '/../../public/components/navbar.html'; ?>
-
+<main class="centered-content">
 <div class="container">
     <h1>Vaši cvičenci</h1>
 
@@ -65,6 +67,8 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
     }
     ?>
 </div>
+
+</main>
 
 </body>
 </html>
