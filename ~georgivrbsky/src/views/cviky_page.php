@@ -51,10 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
 
 <main class="centered-content">
     <div class="container">
-        <div class="main-grid">
             <!-- Levá část: Výpis cviků -->
-            <div class="left-column">
-                <h1>Cviky pro plánování tréninku</h1>
+                <h1 style="text-align: center;">Cviky pro plánování tréninku</h1>
                 <p>Naplnit databázi více cviky, dojdou při více dnech!!!</p>
 
                 <?php
@@ -62,12 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
                     CvicebniPlan($db, $POCET_DNI, $ZAMERENI, $MISTO);
                 }
                 ?>
-            </div>
 
             <!-- Pravá část: Formulář pro výběr počtu dnů -->
-            <div class="right-column">
                 <form method="post" class="plan-form">
-                    <label for="pocetDni">Kolikrát týdně chcete cvičit?</label>
+                    <label for="pocetDni" style="text-align: center;">Kolikrát týdně chcete cvičit?</label>
                     <select name="pocetDni" id="pocetDni" required>
                         <option value="2">2x týdně</option>
                         <option value="3">3x týdně</option>
@@ -79,11 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
                     <button type="submit" class="submit-button">Dej mi plán</button>
                 </form>
 
-                <a href="/~georgivrbsky/src/views/dashboard_page.php" class="back-link">
+                
+            <a href="/~georgivrbsky/src/views/dashboard_page.php" class="back-link">
                     <button class="back-button">Zpět</button>
                 </a>
-            </div>
-        </div>
     </div>
 </main>
 

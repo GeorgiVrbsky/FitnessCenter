@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" style="max-width: 500px;">
         <form class ="login-form" action="/~georgivrbsky/src/controllers/LoginController.php" method="post">
             <h2>Vitejte zpet</h2>
             <p>Prihlaste se do sveho uctu</p>

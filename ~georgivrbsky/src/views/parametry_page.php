@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="max-width: 600px;">
     <div class="form-container">
         <h1>1. Týden</h1>
         <h2>Parametry</h2>

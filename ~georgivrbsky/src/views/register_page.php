@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="max-width: 500px;">
     <div class="form-container">
         <h2>Registrace uživatele</h2>
 
