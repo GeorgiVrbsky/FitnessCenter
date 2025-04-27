@@ -1,50 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrace</title>
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
-
-
 </head>
 <body>
 
-<form method="post" action="/~georgivrbsky/src/controllers/RegisterController.php">
+<div class="container">
+    <div class="form-container">
+        <h2>Registrace uživatele</h2>
 
-    <label for="jmeno">Jmeno: </label><br>
-    <input type="text" id="jmeno" name="jmeno" required><br>
+        <form method="post" action="/~georgivrbsky/src/controllers/RegisterController.php" class="register-form">
+            <!-- Jméno -->
+            <div class="input-group">
+                <label for="jmeno">Jméno:</label>
+                <input type="text" id="jmeno" name="jmeno" required>
+            </div>
 
-    <label for="prijmeni">Prijmeni: </label><br>
-    <input type="text" id="prijmeni" name="prijmeni" required><br>
+            <!-- Příjmení -->
+            <div class="input-group">
+                <label for="prijmeni">Příjmení:</label>
+                <input type="text" id="prijmeni" name="prijmeni" required>
+            </div>
 
-    <label for="email">email: </label><br>
-    <input type="email" id="email" name="email" required><br>
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-    <label for="telefon">Telefon:</label><br>
-    <input type="number" id="telefon" name="telefon" required><br>
+            <!-- Telefon -->
+            <div class="input-group">
+                <label for="telefon">Telefon:</label>
+                <input type="number" id="telefon" name="telefon" required>
+            </div>
 
-    <label for="datum_narozeni">Datum narozeni:</label><br>
-    <input type="date" id="datum_narozeni" name="datum_narozeni" required><br><br>
+            <!-- Datum narození -->
+            <div class="input-group">
+                <label for="datum_narozeni">Datum narození:</label>
+                <input type="date" id="datum_narozeni" name="datum_narozeni" required>
+            </div>
 
-    <label for="pohlavi">Pohlaví:</label>
-    <select id="pohlavi" name="pohlavi" required>
-        <option value="">-- Vyberte --</option>
-        <option value="muz">Muž</option>
-        <option value="zena">Žena</option>
-        <option value="jine">Jiné</option>
-    </select><br>
+            <!-- Pohlaví -->
+            <div class="input-group">
+                <label for="pohlavi">Pohlaví:</label>
+                <select id="pohlavi" name="pohlavi" required>
+                    <option value="">-- Vyberte --</option>
+                    <option value="muz">Muž</option>
+                    <option value="zena">Žena</option>
+                    <option value="jine">Jiné</option>
+                </select>
+            </div>
 
-    <label for="heslo">Heslo: </label><br>
-    <input type="password" id="heslo" name="heslo" required><br>
+            <!-- Heslo -->
+            <div class="input-group">
+                <label for="heslo">Heslo:</label>
+                <input type="password" id="heslo" name="heslo" required>
+            </div>
 
-    <label for="confirm_heslo">Potvrzeni hesla: </label><br>
-    <input type="password" id="confirm_heslo" name="confirm_heslo" required><br>
+            <!-- Potvrzení hesla -->
+            <div class="input-group">
+                <label for="confirm_heslo">Potvrzení hesla:</label>
+                <input type="password" id="confirm_heslo" name="confirm_heslo" required>
+            </div>
 
-    <input type="submit" value="Odeslat">
-
-
-</form>
+            <!-- Tlačítko pro odeslání -->
+            <button type="submit" class="submit-button">Odeslat</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

@@ -23,7 +23,7 @@ while ($row = $parametry->fetch_assoc()) {
     }
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hmotnost = $_POST["hmotnost"] ?? '';
     $vyska = $_POST["vyska"] ?? '';
     $obvod_pasu = $_POST["obvod_pasu"] ?? '';
@@ -32,79 +32,91 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     try {
         $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, user_idUser) VALUES (?,?,?,?,?,?)";
-        $params = [$nextWeek, $vyska , $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
+        $params = [$nextWeek, $vyska, $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
         $db->query($insert, $params);
 
-        header("Location: ".$_SERVER['PHP_SELF']);
+        header("Location: " . $_SERVER['PHP_SELF']);
         exit();
-
-
     } catch (Exception $e) {
         echo $e->getMessage();
     }
 }
-
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přehled parametrů</title>
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
-
 </head>
 
-<body>
+<body class="dashboard-body">
+    <!-- Navbar include -->
+    <header>
+        <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+    </header>
 
-<!-- Týdenní přehled -->
-<div class="grid">
-    <?php
-    $week = 1;
-    foreach ($paramData as $p) {
-        $hmotnost = $p['hmotnost'] ?? 'N/A';
-        $pas = $p['obvod_pasu'] ?? 'N/A';
-        $hrudnik = $p['obvod_hrudniku'] ?? 'N/A';
-        $vyska = $p['vyska'] ?? 'N/A';
-    
-        echo "<div class='card'><h3>Týden $week</h3>";
-        echo "Váha: {$hmotnost} kg<br>";
-        echo "Pas: {$pas} cm<br>";
-        echo "Hrudník: {$hrudnik} cm<br>";
-        echo "Výška: {$vyska} cm<br>";
-        echo "</div>";
-        $week++;
-    }
-    ?>
-</div>
+    <main>
+        <!-- Týdenní přehled -->
+        <section>
+            <h2>Týdenní přehled parametrů</h2>
+            <div class="dashboard-grid">
+                <?php
+                $week = 1;
+                foreach ($paramData as $p) {
+                    $hmotnost = $p['hmotnost'] ?? 'N/A';
+                    $pas = $p['obvod_pasu'] ?? 'N/A';
+                    $hrudnik = $p['obvod_hrudniku'] ?? 'N/A';
+                    $vyska = $p['vyska'] ?? 'N/A';
 
-<form method="POST" action="">
-    <p>Zadejte sve parametry pro dalsi tyden</p>
+                    echo "<div class='card'>
+                            <h3>Týden $week</h3>
+                            <p><strong>Váha:</strong> {$hmotnost} kg</p>
+                            <p><strong>Pas:</strong> {$pas} cm</p>
+                            <p><strong>Hrudník:</strong> {$hrudnik} cm</p>
+                            <p><strong>Výška:</strong> {$vyska} cm</p>
+                          </div>";
+                    $week++;
+                }
+                ?>
+            </div>
+        </section>
 
-    <label>Vase hmotnost: </label>
-    <input type="number" name="hmotnost" required><br>
+        <!-- Formulář pro nový týden -->
+        <section>
+            <h2>Formulář pro nový týden</h2>
+            <form method="POST" action="">
+                <div class="input-group">
+                    <label for="hmotnost">Váha (kg):</label>
+                    <input type="number" name="hmotnost" id="hmotnost" required>
+                </div>
 
-    <label>Vas obvod pasu: </label>
-    <input type="number" name="obvod_pasu" required><br>
+                <div class="input-group">
+                    <label for="obvod_pasu">Obvod pasu (cm):</label>
+                    <input type="number" name="obvod_pasu" id="obvod_pasu" required>
+                </div>
 
-    <label>Vas obvod hrudniku: </label>
-    <input type="number" name="obvod_hrudniku" required><br>
+                <div class="input-group">
+                    <label for="obvod_hrudniku">Obvod hrudníku (cm):</label>
+                    <input type="number" name="obvod_hrudniku" id="obvod_hrudniku" required>
+                </div>
 
-    <label>Vase vyska: </label>
-    <input type="number" name="vyska" required><br>
+                <div class="input-group">
+                    <label for="vyska">Výška (cm):</label>
+                    <input type="number" name="vyska" id="vyska" required>
+                </div>
 
-    <button type="submit">Submit</button>
+                <button type="submit" class="login-button">Odeslat</button>
+            </form>
+        </section>
 
+        <!-- Zpět na dashboard -->
 
-
-</form>
-
-<a href="/~georgivrbsky/src/views/dashboard_page.php"><button>Back</button></a>
-
+            <a href="/~georgivrbsky/src/views/dashboard_page.php">
+                <button class="back-button">Zpět</button>
+            </a>
+    </main>
 </body>
-
 </html>
-
-

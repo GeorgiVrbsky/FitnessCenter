@@ -8,10 +8,8 @@ if (!$user_id) {
     exit();
 }
 
-//!!ochrana, aby se sem nedostal nikdo jinak nez z registrace
-//!!zabranit, aby uzivatel nemohl dat, ze vazi 0kg nebo ze ma obvody 0cm
-echo $_SESSION["jmeno"];//tohle potom odstranit, tohle je pro DEV
-
+// Ochrana před neautorizovaným přístupem
+echo $_SESSION["jmeno"]; // pro DEV, později odstranit
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $vyska = $_POST["vyska"] ?? '';
@@ -29,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
-    try{
-    // Najdeme roli podle preferencí
-    $select = "SELECT id FROM ROLE WHERE nazev = ? AND zamereni = ? AND misto = ?";
-    $role_result = $db->query($select, ["Klient", $zamereni, $misto]);
-    }catch(Exception $e){
+    try {
+        // Najdeme roli podle preferencí
+        $select = "SELECT id FROM ROLE WHERE nazev = ? AND zamereni = ? AND misto = ?";
+        $role_result = $db->query($select, ["Klient", $zamereni, $misto]);
+    } catch(Exception $e) {
         echo $e->getMessage();
     }
 
@@ -41,23 +39,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $role_id = $role["id"];
         $db->query("UPDATE USER SET role_idRole = ? WHERE id = ?", [$role_id, $user_id]);
         echo "<p style='color: green;'>Úspěšně uloženo!</p>";
-        
-        try{
+
+        try {
             // Uložíme parametry
             $params = [1, $vyska, $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
             $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, user_idUser) VALUES (?, ?, ?, ?, ?, ?)";
             $db->query($insert, $params);
         
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
         header("Location: /~georgivrbsky/src/views/trenerVyber_page.php");
         exit();
     } else {
         echo "<p style='color: red;'>Nebyla nalezena odpovídající role.</p>";
     }
-
-    
 }
 ?>
 
@@ -68,38 +64,57 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
 <body>
-<!-- HTML Formulář -->
-<form method="POST" action="">
-    <h1>1. Tyden</h1>
-    <h2>Parametry</h2>
-    <label>Vaše výška (cm)</label><br>
-    <input type="number" name="vyska" required><br><br>
 
-    <label>Vaše hmotnost (kg)</label><br>
-    <input type="number" name="hmotnost" required><br><br>
+<div class="container">
+    <div class="form-container">
+        <h1>1. Týden</h1>
+        <h2>Parametry</h2>
+        
+        <form method="POST" action="" class="parametry-form">
+            <!-- Parametry -->
+            <div class="input-group">
+                <label for="vyska">Vaše výška (cm)</label>
+                <input type="number" name="vyska" required>
+            </div>
 
-    <label>Obvod pasu (cm)</label><br>
-    <input type="number" name="obvod_pasu" required><br><br>
+            <div class="input-group">
+                <label for="hmotnost">Vaše hmotnost (kg)</label>
+                <input type="number" name="hmotnost" required>
+            </div>
 
-    <label>Obvod hrudniku (cm)</label><br>
-    <input type="number" name="obvod_hrudniku" required><br><br>
+            <div class="input-group">
+                <label for="obvod_pasu">Obvod pasu (cm)</label>
+                <input type="number" name="obvod_pasu" required>
+            </div>
 
-    <h2>Preference</h2>
+            <div class="input-group">
+                <label for="obvod_hrudniku">Obvod hrudníku (cm)</label>
+                <input type="number" name="obvod_hrudniku" required>
+            </div>
 
-    <label>Zaměření</label><br>
-    <select name="zamereni" required>
-        <option value="Nabirani_Svalu">Nabírání Svalů</option>
-        <option value="Hubnuti">Hubnutí</option>
-        <option value="Kondice">Kondice</option>
-    </select><br><br>
+            <h2>Preference</h2>
 
-    <label>Místo</label><br>
-    <select name="misto" required>
-        <option value="Posilovna">Posilovna</option>
-        <option value="Doma">Doma</option>
-    </select><br><br>
+            <div class="input-group">
+                <label for="zamereni">Zaměření</label>
+                <select name="zamereni" required>
+                    <option value="Nabirani_Svalu">Nabírání Svalů</option>
+                    <option value="Hubnuti">Hubnutí</option>
+                    <option value="Kondice">Kondice</option>
+                </select>
+            </div>
 
-    <button type="submit">Submit</button>
-</form>
+            <div class="input-group">
+                <label for="misto">Místo</label>
+                <select name="misto" required>
+                    <option value="Posilovna">Posilovna</option>
+                    <option value="Doma">Doma</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Uložit</button>
+        </form>
+    </div>
+</div>
 
 </body>
+</html>

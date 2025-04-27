@@ -35,68 +35,84 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
     <title>Dashboard</title>
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
-<body>
+<body class="dashboard-body">
 
-<?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+<header>
+    <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+</header>
+<main>
 
-<h1>Týdenní postup</h1>
 
-<!-- Týdenní přehled -->
-<div class="grid">
-    <?php
-    $week = 1;
-    while ($p = $parametry->fetch_assoc()) {
-        $hmotnost = $p['hmotnost'] ?? 'N/A';
-        $pas = $p['obvod_pasu'] ?? 'N/A';
-        $hrudnik = $p['obvod_hrudniku'] ?? 'N/A';
 
-        echo "<div class='card'><h3>Týden $week</h3>";
-        echo "Váha: {$hmotnost} kg<br>";
-        echo "Pas: {$pas} cm<br>";
-        echo "Hrudník: {$hrudnik} cm<br>";
-        echo "</div>";
-        $week++;
-    }
-    ?>
-</div>
+    <section>
+        <h2>Týdenní postup</h2>
+        <div class="dashboard-grid">
+            <?php
+            $week = 1;
+            while ($p = $parametry->fetch_assoc()) {
+                $hmotnost = $p['hmotnost'] ?? 'N/A';
+                $pas = $p['obvod_pasu'] ?? 'N/A';
+                $hrudnik = $p['obvod_hrudniku'] ?? 'N/A';
 
-<p><a href="/~georgivrbsky/src/views/prehled_page.php">Detailnější informace o postupu</a></p>
+                echo "<div class='card'>
+                            <h3>Týden $week</h3>
+                            <p><strong>Váha:</strong> {$hmotnost} kg</p>
+                            <p><strong>Pas:</strong> {$pas} cm</p>
+                            <p><strong>Hrudník:</strong> {$hrudnik} cm</p>
+                        </div>";
+                $week++;
+            }
+            ?>
+        </div>
+        <p><a href="/~georgivrbsky/src/views/prehled_page.php">→ Detailnější informace o postupu</a></p>
+    </section>
 
-<!-- Trenér -->
-<h2>Trenér</h2>
-<?php
-if ($trener) {
-    echo "<p>{$trener['jmeno']} {$trener['prijmeni']}</p>";
-} else {
-    echo "<p>Nemáte přiděleného trenéra.</p>";
-}
-?>
+    <section>
+        <h2>Trenér</h2>
+        <div class="card">
+            <?php
+            if ($trener) {
+                echo "<p><strong>{$trener['jmeno']} {$trener['prijmeni']}</strong></p>";
+            } else {
+                echo "<p>Nemáte přiděleného trenéra.</p>";
+            }
+            ?>
+        </div>
+    </section>
 
-<!-- Cviky -->
-<h2>Týdenní cviky</h2>
-<ul>
-<?php
-while ($cvik = $cviky->fetch_assoc()) {
-    echo "<li>" . htmlspecialchars($cvik["nazev"]) . "</li>";
-}
-?>
-</ul>
-<p><a href="/~georgivrbsky/src/views/cviky_page.php">Přejít na detailnější vaše cviky</a></p>
+    <section>
+        <h2>Týdenní cviky</h2>
+        <div class="card">
+            <ul>
+                <?php
+                while ($cvik = $cviky->fetch_assoc()) {
+                    echo "<li>" . htmlspecialchars($cvik["nazev"]) . "</li>";
+                }
+                ?>
+            </ul>
+            <p><a href="/~georgivrbsky/src/views/cviky_page.php">→ Přejít na detailnější vaše cviky</a></p>
+        </div>
+    </section>
 
-<!-- Kalkulačka kalorií -->
-<h2>Kalkulačka kalorií</h2>
-<form id="kalkulacka">
-    <label>Hmotnost (kg):</label><br>
-    <input type="number" id="hmotnost" required><br>
-    <label>Výška (cm):</label><br>
-    <input type="number" id="vyska" required><br>
-    <label>Věk (roky):</label><br>
-    <input type="number" id="vek" required><br>
-    <button type="button" onclick="vypocitejKalorie()">Vypočítej</button>
-</form>
-<div id="vysledek"></div>
+    <section>
+        <h2>Kalkulačka kalorií</h2>
+        <form id="kalkulacka">
+            <label for="hmotnost">Hmotnost (kg):</label>
+            <input type="number" id="hmotnost" required>
 
-<p><a href="/~georgivrbsky/src/views/kalkulacky_page.php">Přejít na více kalkulaček</a></p>
+            <label for="vyska">Výška (cm):</label>
+            <input type="number" id="vyska" required>
+
+            <label for="vek">Věk (roky):</label>
+            <input type="number" id="vek" required>
+
+            <button type="button" onclick="vypocitejKalorie()">Vypočítej</button>
+            <div id="vysledek"></div>
+        </form>
+        <p><a href="/~georgivrbsky/src/views/kalkulacky_page.php">→ Přejít na více kalkulaček</a></p>
+    </section>
+
+</main>
 
 <script>
 function vypocitejKalorie() {

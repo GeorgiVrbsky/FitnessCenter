@@ -1,4 +1,1 @@
-dodelat, ze muzu psat desetinna cisla do formularu
-KALKULACKY pridat i vysvetleni co to meri
-v databaze_save nejsou inserty treneru
-udelat, ze se uzivatel nemuze zaregistrovat, pokud uz nekdo ma stejny email
+<?php include __DIR__ . '/../../public/components/navbar.html'; ?>

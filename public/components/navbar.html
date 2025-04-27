@@ -1,96 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <meta charset="UTF-8">
-
-  <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    margin-bottom: 20px; /* Tím zajistíš, že navbar bude nahoře */
-}
-
-.navbar .logo a {
-    color: white;
-    font-size: 24px;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #f39c12;
-}
-
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-}
-    
-
-  </style>
-
-</head>
-<body>
-
- <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="#">MojeStránka</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Domů</a></li>
-                <li><a href="#">Služby</a></li>
-                <li><a href="#">O nás</a></li>
-                <li><a href="#">Kontakt</a></li>
-                <li><p style="text-align: right;"><a href="/~georgivrbsky/public/logout.php" style="color: red; font-weight: bold;">Odhlásit se</a></p></li>
-            </ul>
-            <div class="menu-icon" id="menu-icon">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
-
-
-
-</body>
-</html>
+<nav class="basic-navbar">
+    <div class="basic-navbar-brand">
+        <a href="/~georgivrbsky/src/views/dashboard_page.php">MojeStránka</a>
+    </div>
+    <ul class="basic-nav-links">
+        <li class="basic-nav-item"><a href="#" class="basic-nav-link">Domů</a></li>
+        <li class="basic-nav-item"><a href="#" class="basic-nav-link">Služby</a></li>
+        <li class="basic-nav-item"><a href="#" class="basic-nav-link">O nás</a></li>
+        <li class="basic-nav-item"><a href="#" class="basic-nav-link">Kontakt</a></li>
+        <li class="basic-nav-item">
+            <a href="/~georgivrbsky/public/logout.php" class="basic-nav-link basic-nav-logout">Odhlásit se</a>
+        </li>
+    </ul>
+    </nav>

@@ -1,9 +1,7 @@
 <?php
 session_start();
 include __DIR__ . '/../../src/database/db_conn.php';
-
 include __DIR__ . '/../../src/controllers/CvikyController.php';
-
 
 $POCET_DNI = 1;
 $ZAMERENI = "";
@@ -15,6 +13,7 @@ if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
+
 $stmt = "
     SELECT r.zamereni, r.misto
     FROM USER u
@@ -38,38 +37,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cviky</title>
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
-<body>
-<p>Naplnit databazi vice cviky, dojdou pri vice dnech !!!</p>
-<form method="post">
-    <label>Kolikrat tydne chcete cvicit?</label><br>
-    <select name="pocetDni" required>
-        <option value="2">2x tydne</option>
-        <option value="3">3x tydne</option>
-        <option value="4">4x tydne</option>
-        <option value="5">5x tydne</option>
-        <option value="6">6x tydne</option>
-        <option value="7">7x tydne</option>
-    </select><br>
+<body class="dashboard-body">
+<header>
+    <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+</header>
 
-    <button type="submit">Dej mi plan</button>
+<main class="centered-content">
+    <div class="container">
+        <div class="main-grid">
+            <!-- Levá část: Výpis cviků -->
+            <div class="left-column">
+                <h1>Cviky pro plánování tréninku</h1>
+                <p>Naplnit databázi více cviky, dojdou při více dnech!!!</p>
 
-</form>
+                <?php
+                if (isset($_POST["pocetDni"])) { 
+                    CvicebniPlan($db, $POCET_DNI, $ZAMERENI, $MISTO);
+                }
+                ?>
+            </div>
 
-<?php
+            <!-- Pravá část: Formulář pro výběr počtu dnů -->
+            <div class="right-column">
+                <form method="post" class="plan-form">
+                    <label for="pocetDni">Kolikrát týdně chcete cvičit?</label>
+                    <select name="pocetDni" id="pocetDni" required>
+                        <option value="2">2x týdně</option>
+                        <option value="3">3x týdně</option>
+                        <option value="4">4x týdně</option>
+                        <option value="5">5x týdně</option>
+                        <option value="6">6x týdně</option>
+                        <option value="7">7x týdně</option>
+                    </select>
+                    <button type="submit" class="submit-button">Dej mi plán</button>
+                </form>
 
-if(isset($_POST["pocetDni"])){ 
-CvicebniPlan($db,$POCET_DNI, $ZAMERENI, $MISTO);
-}
-?>
-
-<a href="/~georgivrbsky/src/views/dashboard_page.php"><button>ZPET</button></a>
-    
+                <a href="/~georgivrbsky/src/views/dashboard_page.php" class="back-link">
+                    <button class="back-button">Zpět</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>    
 </body>
 </html>

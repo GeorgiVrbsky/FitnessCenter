@@ -8,7 +8,7 @@ if (!$user_id) {
     exit();
 }
 
-echo $_SESSION["jmeno"];
+echo $_SESSION["jmeno"]; // Pro DEV, později odstranit
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["vybrany_trener"])) {
     $trener_id = $_POST["vybrany_trener"];
@@ -36,14 +36,14 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
     ", [$zamereni, $misto]);
 
     if ($treneri && $treneri->num_rows > 0) {
-        echo "<form method='POST'>";
+        echo "<form method='POST' class='trainer-form'>";
         echo "<h2>Vyberte si trenéra:</h2>";
         echo "<select name='vybrany_trener' required>";
         while ($t = $treneri->fetch_assoc()) {
             echo "<option value='{$t["id"]}'>{$t["jmeno"]} {$t["prijmeni"]}</option>";
         }
         echo "</select><br><br>";
-        echo "<button type='submit'>Potvrdit výběr</button>";
+        echo "<button type='submit' class='submit-button'>Potvrdit výběr</button>";
         echo "</form>";
     } else {
         echo "<p>Pro vaši preferenci nebyl nalezen žádný dostupný trenér.</p>";
@@ -52,3 +52,14 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
     echo "<p>Nemáte přiřazenou roli nebo se nepodařilo získat data.</p>";
 }
 ?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výběr trenéra</title>
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
+</head>
+<body>
+
+</body>
+</html>
