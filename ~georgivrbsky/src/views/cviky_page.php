@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
 </head>
 <body class="dashboard-body">
 <header>
-    <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+    <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
 </header>
 
 <main class="centered-content">

@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="dashboard-body">
     <!-- Navbar include -->
     <header>
-        <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+        <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
     </header>
 
     <main>

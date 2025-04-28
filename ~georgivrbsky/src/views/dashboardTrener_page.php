@@ -27,8 +27,10 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
 </head>
 <body class="dashboard-body">
 <header>
-    <?php include __DIR__ . '/../../public/components/navbar.html'; ?>
+    <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
 </header>
+
+<p>bloky at zacinaji na konecnym tydnu</p>
 
 <main class="centered-content">
 <div class="container">

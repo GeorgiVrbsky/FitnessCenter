@@ -18,14 +18,14 @@ if (!$user_id) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color:rgb(178, 178, 178);
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
         h1 {
-            background-color: #007BFF;
+            background-color:rgb(148, 0, 202);
             color: white;
             padding: 20px;
         }
@@ -61,14 +61,14 @@ if (!$user_id) {
         }
 
         button {
-            background-color: #007BFF;
+            background-color:rgb(152, 0, 198);
             color: white;
             border: none;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color:rgb(65, 0, 105);
         }
 
         p {

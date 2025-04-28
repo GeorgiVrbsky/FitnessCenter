@@ -11,6 +11,7 @@
 <div class="container" style="max-width: 500px;">
     <div class="form-container">
         <h2>Registrace uživatele</h2>
+        <p>formular at nema to male scrollovani</p>
 
         <form method="post" action="/~georgivrbsky/src/controllers/RegisterController.php" class="register-form">
             <!-- Jméno -->
