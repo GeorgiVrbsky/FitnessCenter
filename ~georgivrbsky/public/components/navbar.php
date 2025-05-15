@@ -1,7 +1,10 @@
 <?php
-session_start(); 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $JMENO = $_SESSION['jmeno'] ?? 'Host'; // Když není přihlášený, zobrazí "Host"
+
 ?>
 
 <nav class="basic-navbar">

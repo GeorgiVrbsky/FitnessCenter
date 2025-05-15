@@ -8,6 +8,7 @@ if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
+echo $user_id;
 
 // Získání uživatele
 $user_stmt = $db->query("SELECT * FROM USER WHERE id = ?", [$user_id]);
@@ -24,8 +25,7 @@ if (!empty($user["user_idUser"])) {
 $cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ?", [$user["role_idRole"]]);
 
 // Získání týdenních parametrů
-//at to jde od konce
-$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne ASC LIMIT 4", [$user_id]);
+$parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne DESC LIMIT 4", [$user_id]);
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +49,8 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
             <h2>Týdenní postup</h2>
             <div class="dashboard-grid">
                 <?php
-                $week = 1;
                 while ($p = $parametry->fetch_assoc()) {
+                    $week = $p['cislo_tydne'] ?? 'N/A';
                     $hmotnost = $p['hmotnost'] ?? 'N/A';
                     $pas = $p['obvod_pasu'] ?? 'N/A';
                     $hrudnik = $p['obvod_hrudniku'] ?? 'N/A';
@@ -61,7 +61,6 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
                             <p><strong>Pas:</strong> {$pas} cm</p>
                             <p><strong>Hrudník:</strong> {$hrudnik} cm</p>
                         </div>";
-                    $week++;
                 }
                 ?>
             </div>
