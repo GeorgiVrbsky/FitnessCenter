@@ -4,7 +4,7 @@ include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Trim & sanitize vstupy
+
     $JMENO = trim($_POST["jmeno"] ?? '');
     $PRIJMENI = trim($_POST["prijmeni"] ?? '');
     $EMAIL = trim($_POST["email"] ?? '');
@@ -14,13 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $HESLO_RAW = $_POST["heslo"] ?? '';
     $CONFIRM_HESLO = $_POST["confirm_heslo"] ??'';
 
-    // Validace prázdných hodnot
+
     if (empty($JMENO) || empty($PRIJMENI) || empty($EMAIL) || empty($HESLO_RAW) || empty($CONFIRM_HESLO)) {
         echo "Vyplňte prosím všechna povinná pole.";
         exit();
     }
 
-    //validace hesla
+
     if ($HESLO_RAW !== $CONFIRM_HESLO) {
         echo "Hesla se neshodují.";
         exit();

@@ -3,24 +3,24 @@ include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Načti přihlašovací údaje
+
     $EMAIL = trim($_POST["email"] ?? "");
     $HESLO = $_POST["heslo"] ?? "";
 
-    // Validace vstupu
+
     if (empty($EMAIL) || empty($HESLO)) {
         echo "Zadejte e-mail i heslo.";
         exit();
     }
 
-    // Zjisti, zda existuje uživatel s daným e-mailem
+
     $query = "SELECT id, jmeno, heslo, role_idRole FROM USER WHERE email = ?";
     $result = $db->query($query, [$EMAIL]);
 
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
-        // Ověření hesla
+
         if (password_verify($HESLO, $user["heslo"])) {
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["jmeno"] = $user["jmeno"];
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $roleId = $user["role_idRole"];
 
-            // Získání názvu role podle ID
+
             $roleQuery = "SELECT nazev FROM ROLE WHERE id = ?";
             $roleResult = $db->query($roleQuery, [$roleId]);
 

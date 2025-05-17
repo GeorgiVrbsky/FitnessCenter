@@ -8,7 +8,7 @@ function CvicebniPlan($db, $POCET_DNI, $ZAMERENI, $MISTO) {
     $DNY = 1;
     $POCET_CVIKU = 0;
 
-    echo '<div class="plan-grid">'; // Otevřeme grid
+    echo '<div class="plan-grid">'; 
 
     echo '<div class="day-block">';
     echo "<h2>Den " . $DNY . "</h2>";
@@ -19,8 +19,8 @@ function CvicebniPlan($db, $POCET_DNI, $ZAMERENI, $MISTO) {
             if ($DNY > $POCET_DNI) {
                 break;
             }
-            echo '</div>'; // Zavřeme předchozí den
-            echo '<div class="day-block">'; // Nový den
+            echo '</div>'; 
+            echo '<div class="day-block">'; 
             echo "<h2>Den " . $DNY . "</h2>";
             $POCET_CVIKU = 0;
             $DNY++;
@@ -36,8 +36,8 @@ function CvicebniPlan($db, $POCET_DNI, $ZAMERENI, $MISTO) {
         }
     }
 
-    echo '</div>'; // Zavřít poslední den
-    echo '</div>'; // Zavřít grid
+    echo '</div>'; 
+    echo '</div>'; 
 }
 
 ?>

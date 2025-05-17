@@ -2,7 +2,6 @@
 include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
-// Zkontroluj přihlášení a roli
 if (!isset($_SESSION["user_id"])) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
@@ -13,7 +12,7 @@ if ($_SESSION["role"] !== "Trener") {
     exit();
 }
 
-// Získej všechny klienty přiřazené tomuto trenérovi
+
 $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = ?", [$_SESSION["user_id"]]);
 ?>
 
@@ -23,7 +22,7 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trenérský Dashboard</title>
-    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css"> <!-- Odkaz na externí stylesheet -->
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css"> 
 </head>
 <body class="dashboard-body">
 <header>
@@ -45,7 +44,6 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
             echo "<div class='klient'>";
             echo "<h2>{$klient['jmeno']} {$klient['prijmeni']}</h2>";
 
-            // Získej poslední týdenní záznam pro tohoto klienta
             $parametry = $db->query(
                 "SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY cislo_tydne DESC LIMIT 1",
                 [$klient_id]

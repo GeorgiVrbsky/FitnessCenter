@@ -8,7 +8,7 @@ if (!$user_id) {
     exit();
 }
 
-// Ochrana před neautorizovaným přístupem
+
 echo $_SESSION["jmeno"]; // pro DEV, později odstranit
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     try {
-        // Najdeme roli podle preferencí
+
         $select = "SELECT id FROM ROLE WHERE nazev = ? AND zamereni = ? AND misto = ?";
         $role_result = $db->query($select, ["Klient", $zamereni, $misto]);
     } catch(Exception $e) {
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<p style='color: green;'>Úspěšně uloženo!</p>";
 
         try {
-            // Uložíme parametry
+
             $params = [1, $vyska, $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
             $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, user_idUser) VALUES (?, ?, ?, ?, ?, ?)";
             $db->query($insert, $params);
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2>Parametry</h2>
         
         <form method="POST" action="" class="parametry-form">
-            <!-- Parametry -->
+
             <div class="input-group">
                 <label for="vyska">Vaše výška (cm)</label>
                 <input type="number" name="vyska" required>

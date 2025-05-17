@@ -7,7 +7,7 @@ $POCET_DNI = 1;
 $ZAMERENI = "";
 $MISTO = "";
 
-// Ověření přihlášení
+
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");

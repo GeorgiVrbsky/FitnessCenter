@@ -79,7 +79,7 @@ if (!$user_id) {
     <h1>Výživové Kalkulačky</h1>
 
     <div class="container">
-        <!-- Kalkulačka pro BMI -->
+
         <div class="calculator">
             <h2>BMI Kalkulačka</h2>
             <form id="bmi_form">
@@ -107,6 +107,8 @@ if (!$user_id) {
             const bmi = hmotnost / Math.pow(vyska / 100, 2);
             document.getElementById('bmi_vypocet').innerText = `Vaše BMI: ${bmi.toFixed(2)}`;
         });
+
+        
     </script>
 </body>
 </html>

@@ -2,7 +2,6 @@
 session_start();
 include __DIR__ . '/../../src/database/db_conn.php';
 
-// Zkontroluj přihlášení
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
@@ -10,7 +9,7 @@ if (!$user_id) {
 }
 echo $user_id;
 
-// Získání uživatele
+
 $user_stmt = $db->query("SELECT * FROM USER WHERE id = ?", [$user_id]);
 $user = $user_stmt->fetch_assoc();
 

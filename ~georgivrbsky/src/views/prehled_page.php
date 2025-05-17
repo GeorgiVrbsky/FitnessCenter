@@ -53,13 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="dashboard-body">
-    <!-- Navbar include -->
+
     <header>
         <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
     </header>
 
     <main>
-        <!-- Týdenní přehled -->
+
         <section>
             <h2>Týdenní přehled parametrů</h2>
             <div class="dashboard-grid">
