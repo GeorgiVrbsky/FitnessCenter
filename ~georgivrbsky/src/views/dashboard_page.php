@@ -95,7 +95,6 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
         </section>
 
         <section>
-            <p>odstranit number sipecky</p>
             <h2>Kalkulačka kalorií</h2>
             <form id="kalkulacka">
                 <label for="hmotnost">Hmotnost (kg):</label>

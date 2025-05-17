@@ -112,7 +112,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </section>
 
-        <!-- Zpět na dashboard -->
 
             <a href="/~georgivrbsky/src/views/dashboard_page.php">
                 <button class="back-button">Zpět</button>
