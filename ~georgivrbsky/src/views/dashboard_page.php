@@ -101,13 +101,13 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
             <h2>Kalkulačka kalorií</h2>
             <form id="kalkulacka">
                 <label for="hmotnost">Hmotnost (kg):</label>
-                <input type="number" id="hmotnost" required>
+                <input type="number" id="hmotnost" name="hmotnost" required min="30" max="250" step="0.1" placeholder="např. 75.5">
 
                 <label for="vyska">Výška (cm):</label>
-                <input type="number" id="vyska" required>
+                <input type="number" id="vyska" name="vyska" required min="100" max="250" step="1" placeholder="např. 180">
 
                 <label for="vek">Věk (roky):</label>
-                <input type="number" id="vek" required>
+                <input type="number" id="vek" name="vek" required min="10" max="100" step="1" placeholder="např. 25">
 
                 <button type="button" onclick="vypocitejKalorie()">Vypočítej</button>
                 <div id="vysledek"></div>

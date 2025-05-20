@@ -30,13 +30,13 @@
             </div>
 
             <div class="input-group">
-                <label for="telefon">Telefon:</label>
-                <input type="number" id="telefon" name="telefon" required>
+            <label for="telefon">Telefon:</label>
+            <input type="tel" id="telefon" name="telefon" required pattern="^\+?[0-9]{9,15}$" placeholder="+420123456789" required>
             </div>
 
             <div class="input-group">
-                <label for="datum_narozeni">Datum narození:</label>
-                <input type="date" id="datum_narozeni" name="datum_narozeni" required>
+            <label for="datum_narozeni">Datum narození:</label>
+            <input type="date" id="datum_narozeni" name="datum_narozeni" required max="<?= date('Y-m-d') ?>">
             </div>
 
             <div class="input-group">

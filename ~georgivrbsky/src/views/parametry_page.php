@@ -74,29 +74,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="input-group">
                 <label for="vyska">Vaše výška (cm)</label>
-                <input type="number" name="vyska" required>
+                <input type="number" id="vyska" name="vyska" required min="100" max="250" step="1" placeholder="např. 180">
             </div>
 
             <div class="input-group">
                 <label for="hmotnost">Vaše hmotnost (kg)</label>
-                <input type="number" name="hmotnost" required>
+                <input type="number" id="hmotnost" name="hmotnost" required min="30" max="250" step="0.1" placeholder="např. 75.5">
             </div>
 
             <div class="input-group">
                 <label for="obvod_pasu">Obvod pasu (cm)</label>
-                <input type="number" name="obvod_pasu" required>
+                <input type="number" id="obvod_pasu" name="obvod_pasu" required min="30" max="200" step="0.1" placeholder="např. 85.0">
             </div>
 
             <div class="input-group">
                 <label for="obvod_hrudniku">Obvod hrudníku (cm)</label>
-                <input type="number" name="obvod_hrudniku" required>
+                <input type="number" id="obvod_hrudniku" name="obvod_hrudniku" required min="50" max="200" step="0.1" placeholder="např. 100.0">
             </div>
 
-            <h2>Preference</h2>
+        <h2>Preference</h2>
 
             <div class="input-group">
                 <label for="zamereni">Zaměření</label>
-                <select name="zamereni" required>
+                <select id="zamereni" name="zamereni" required>
+                    <option value="" disabled selected>-- Vyberte zaměření --</option>
                     <option value="Nabirani_Svalu">Nabírání Svalů</option>
                     <option value="Hubnuti">Hubnutí</option>
                     <option value="Kondice">Kondice</option>
@@ -105,13 +106,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="input-group">
                 <label for="misto">Místo</label>
-                <select name="misto" required>
+                <select id="misto" name="misto" required>
+                    <option value="" disabled selected>-- Vyberte místo --</option>
                     <option value="Posilovna">Posilovna</option>
                     <option value="Doma">Doma</option>
                 </select>
             </div>
 
-            <button type="submit" class="submit-button">Uložit</button>
+        <button type="submit" class="submit-button">Uložit</button>
         </form>
     </div>
 </div>
