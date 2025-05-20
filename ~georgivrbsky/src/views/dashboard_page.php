@@ -68,10 +68,14 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
 
         <section>
             <h2>Trenér</h2>
-            <div class="card">
+            <div class="card" style="text-align: center">
                 <?php
                 if ($trener) {
+                    $PATH = transliterator_transliterate('Any-Latin; Latin-ASCII', "/~georgivrbsky/src/photos/" . strtolower($trener['jmeno']) . "_" . strtolower($trener['prijmeni']) . ".jpg");
                     echo "<p><strong>{$trener['jmeno']} {$trener['prijmeni']}</strong></p>";
+                    //echo "<img src=\"" . htmlspecialchars($src_obrazku) . "\" alt=\"Profilová fotografie " . htmlspecialchars($trener['jmeno'] . ' ' . $trener['prijmeni']) . "\">";
+                    //echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka" . "\">";
+                    echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka\" style=\"max-width: 40%; height: auto; border-radius: 8px;\">";
                 } else {
                     echo "<p>Nemáte přiděleného trenéra.</p>";
                 }

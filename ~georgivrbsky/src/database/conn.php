@@ -10,7 +10,7 @@ class Database{
             if($this->conn->connect_error){
                 throw new Exception("Chyba connectoru" . $this->conn->connect_error);
             }else{
-                echo "conn succ";
+                echo "";
             }
         }catch(Exception $e){
             die("Vyjímka" . $e->getMessage());
