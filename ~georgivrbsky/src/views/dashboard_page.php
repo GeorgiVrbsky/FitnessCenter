@@ -25,6 +25,18 @@ $cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ?", [$user["rol
 
 // Získání týdenních parametrů
 $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne DESC LIMIT 4", [$user_id]);
+
+function odstranitDiakritiku($text) {
+    $znaky = [
+        'á'=>'a', 'č'=>'c', 'ď'=>'d', 'é'=>'e', 'ě'=>'e', 'í'=>'i',
+        'ň'=>'n', 'ó'=>'o', 'ř'=>'r', 'š'=>'s', 'ť'=>'t', 'ú'=>'u',
+        'ů'=>'u', 'ý'=>'y', 'ž'=>'z',
+        'Á'=>'A', 'Č'=>'C', 'Ď'=>'D', 'É'=>'E', 'Ě'=>'E', 'Í'=>'I',
+        'Ň'=>'N', 'Ó'=>'O', 'Ř'=>'R', 'Š'=>'S', 'Ť'=>'T', 'Ú'=>'U',
+        'Ů'=>'U', 'Ý'=>'Y', 'Ž'=>'Z',
+    ];
+    return strtr($text, $znaky);
+}
 ?>
 
 <!DOCTYPE html>
@@ -71,10 +83,10 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY 
             <div class="card" style="text-align: center">
                 <?php
                 if ($trener) {
-                    $PATH = transliterator_transliterate('Any-Latin; Latin-ASCII', "/~georgivrbsky/src/photos/" . strtolower($trener['jmeno']) . "_" . strtolower($trener['prijmeni']) . ".jpg");
+                    //$PATH = "/~georgivrbsky/src/photos/" . $trener['jmeno'] . "_" . $trener['prijmeni'] . ".jpg";
+                    $PATH = odstranitDiakritiku("/~georgivrbsky/src/photos/" . $trener['jmeno'] . "_" . $trener['prijmeni'] . ".jpg");
+                    //$PATH = odstranitDiakritiku($PATH);
                     echo "<p><strong>{$trener['jmeno']} {$trener['prijmeni']}</strong></p>";
-                    //echo "<img src=\"" . htmlspecialchars($src_obrazku) . "\" alt=\"Profilová fotografie " . htmlspecialchars($trener['jmeno'] . ' ' . $trener['prijmeni']) . "\">";
-                    //echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka" . "\">";
                     echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka\" style=\"max-width: 40%; height: auto; border-radius: 8px;\">";
                 } else {
                     echo "<p>Nemáte přiděleného trenéra.</p>";
