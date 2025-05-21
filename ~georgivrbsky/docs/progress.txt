@@ -1,2 +1,6 @@
-<?php include __DIR__ . '/../../public/components/navbar.html'; ?>
-upravit cviky, aby se zobrazovali jako grid a ne jako sloupec
+KALKULACKY PAGE
+DODELAT FOTKY TRENERU
+DOPLNIT DATABAZI O CVIKY
+KDO JSME UDELAT A ZAROVEN FOOTER DODELAT
+CSS DOKONCENI, I PRO MOBIL
+
