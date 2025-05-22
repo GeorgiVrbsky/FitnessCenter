@@ -87,7 +87,7 @@ function odstranitDiakritiku($text) {
                     $PATH = strtolower(odstranitDiakritiku("/~georgivrbsky/src/photos/" . $trener['jmeno'] . "_" . $trener['prijmeni'] . ".jpg"));
                     //$PATH = odstranitDiakritiku($PATH);
                     echo "<p><strong>{$trener['jmeno']} {$trener['prijmeni']}</strong></p>";
-                    echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka\" style=\"max-width: 40%; height: auto; border-radius: 8px;\">";
+                    echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka\" style=\"max-width: 50%; height: auto; border-radius: 8px;\">";
                 } else {
                     echo "<p>Nemáte přiděleného trenéra.</p>";
                 }
