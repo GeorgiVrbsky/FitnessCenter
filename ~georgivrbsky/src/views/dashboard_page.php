@@ -21,7 +21,7 @@ if (!empty($user["user_idUser"])) {
 }
 
 // Získání cviků podle Role
-$cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ?", [$user["role_idRole"]]);
+$cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ? ORDER BY RAND() LIMIT 7", [$user["role_idRole"]]);
 
 // Získání týdenních parametrů
 $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne DESC LIMIT 4", [$user_id]);
