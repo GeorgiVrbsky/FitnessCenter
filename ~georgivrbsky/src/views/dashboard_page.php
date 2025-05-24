@@ -7,7 +7,6 @@ if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
-echo $user_id;
 
 
 $user_stmt = $db->query("SELECT * FROM USER WHERE id = ?", [$user_id]);
