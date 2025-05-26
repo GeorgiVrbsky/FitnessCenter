@@ -9,8 +9,6 @@ if (!$user_id) {
 }
 
 
-echo $_SESSION["jmeno"]; // pro DEV, později odstranit
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $vyska = $_POST["vyska"] ?? '';
     $hmotnost = $_POST["hmotnost"] ?? '';

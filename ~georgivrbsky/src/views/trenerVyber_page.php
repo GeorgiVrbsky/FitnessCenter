@@ -8,8 +8,6 @@ if (!$user_id) {
     exit();
 }
 
-echo $_SESSION["jmeno"]; // Pro DEV, později odstranit
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["vybrany_trener"])) {
     $trener_id = $_POST["vybrany_trener"];
 

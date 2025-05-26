@@ -11,8 +11,9 @@ $ROLE = $_SESSION['role'] ?? null;
 <nav class="basic-navbar">
     <div class="basic-navbar-brand">
         <span style="font-size: 1.7rem;">Fitness Center</span>
+        <button class="hamburger" id="hamburger">&#9776;</button>
     </div>
-    <ul class="basic-nav-links">
+    <ul class="basic-nav-links" id="nav-links">
         <?php if ($ROLE !== "Trener"): ?>
         <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/dashboard_page.php" class="basic-nav-link">Dashboard</a></li>
         <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/cviky_page.php" class="basic-nav-link">Cviky</a></li>
@@ -30,3 +31,10 @@ $ROLE = $_SESSION['role'] ?? null;
         </li>
     </ul>
 </nav>
+
+<script>
+  document.getElementById("hamburger").addEventListener("click", function () {
+    var navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("active");
+  });
+</script>
