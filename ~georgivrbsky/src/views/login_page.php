@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Přihlášeníi</title>
+    <title>Přihlášení | Fitness Center</title>
+    <meta name="description" content="Přihlaste se ke svému účtu na Fitness centrum. Rychlé, bezpečné a snadné přihlášení.">
+    <meta name="keywords" content="přihlášení, login, účet, FitnessCenter"> 
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
-    
+    <link rel="icon" href="/~georgivrbsky/public/components/balloon-heart-fill.svg" type="image/svg">
 </head>
 <body>
-
+    
     <div class="container" style="max-width: 500px;">
+        <h1 style="border-bottom:none; font-size: 3rem;">Fitness Center</h1>
         <form class ="login-form" action="/~georgivrbsky/src/controllers/LoginController.php" method="post">
-            <h2>Vitejte zpet</h2>
-            <p>Prihlaste se do sveho uctu</p>
+            <h2>Vítejte zpět</h2>
+            <p>Přihlašte se do svého účtu</p>
 
             <div class="input-group">
                 <label for="email"> Email</label>
@@ -24,21 +27,13 @@
                 <input type="password" id="heslo" name="heslo" placeholder="********" required>
             </div>
 
-            <button type="submit" class="login-button">Prihlasit se</button>
+            <button type="submit" class="login-button">Přihlásit se</button>
 
             <div class="signup-link">
-                Nemate jeste ucet? <a href="/~georgivrbsky/src/views/register_page.php">Registrovat se</a>
+                Nemáte ještě účet? <a href="/~georgivrbsky/src/views/register_page.php">Registrujte se</a>
             </div>
             
-
         </form>
-
-
-
     </div>
-
-
-
-
 </body>
 </html>

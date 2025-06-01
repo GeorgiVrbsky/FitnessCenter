@@ -575,28 +575,11 @@
     margin: 0;
   }
 
-
-  /*RESPONZIVITA*/
-  /* Pro mobily */
-/* HAMBURGER BUTTON */
-.hamburger {
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: white;
-  display: none;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
 /* RESPONSIVE MENU */
 @media (max-width: 768px) { 
-  .hamburger {
-    display: block;
-  }
 
   .basic-nav-links {
-    display: none;
+    display: block;
     flex-direction: column;
     background: rgba(50, 50, 50, 0.95);
     position: absolute;
