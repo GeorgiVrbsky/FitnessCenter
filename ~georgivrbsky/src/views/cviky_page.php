@@ -53,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
     <div class="container">
             <!-- Levá část: Výpis cviků -->
                 <h1 style="text-align: center;">Cviky pro plánování tréninku</h1>
-                <p>Naplnit databázi více cviky, dojdou při více dnech!!!</p>
 
                 <?php
                 if (isset($_POST["pocetDni"])) { 
