@@ -63,36 +63,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
-<div class="container" style="max-width: 600px;">
-    <div class="form-container">
+<div class="kontejner" style="max-width: 600px;">
+    <div class="form-kontejner">
         <h1>1. Týden</h1>
         <h2>Parametry</h2>
         
         <form method="POST" action="" class="parametry-form">
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="vyska">Vaše výška (cm)</label>
                 <input type="number" id="vyska" name="vyska" required min="100" max="250" step="1" placeholder="např. 180">
             </div>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="hmotnost">Vaše hmotnost (kg)</label>
                 <input type="number" id="hmotnost" name="hmotnost" required min="30" max="250" step="0.1" placeholder="např. 75.5">
             </div>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="obvod_pasu">Obvod pasu (cm)</label>
                 <input type="number" id="obvod_pasu" name="obvod_pasu" required min="30" max="200" step="0.1" placeholder="např. 85.0">
             </div>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="obvod_hrudniku">Obvod hrudníku (cm)</label>
                 <input type="number" id="obvod_hrudniku" name="obvod_hrudniku" required min="50" max="200" step="0.1" placeholder="např. 100.0">
             </div>
 
         <h2>Preference</h2>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="zamereni">Zaměření</label>
                 <select id="zamereni" name="zamereni" required>
                     <option value="" disabled selected>-- Vyberte zaměření --</option>
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </select>
             </div>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="misto">Místo</label>
                 <select id="misto" name="misto" required>
                     <option value="" disabled selected>-- Vyberte místo --</option>
@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </select>
             </div>
 
-        <button type="submit" class="submit-button">Uložit</button>
+        <button type="submit" class="submit-tlacitko">Uložit</button>
         </form>
     </div>
 </div>

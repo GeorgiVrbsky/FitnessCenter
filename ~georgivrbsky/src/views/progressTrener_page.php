@@ -41,7 +41,7 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
         <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
     </header>
     <main class="centered-content">
-        <div class="container">
+        <div class="kontejner">
             <h1>Progress klienta <?= htmlspecialchars($klient['jmeno'] . ' ' . $klient['prijmeni']) ?></h1>
             <a href="/~georgivrbsky/src/views/dashboardTrener_page.php">← Zpět na seznam cvičenců</a>
 

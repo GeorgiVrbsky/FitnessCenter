@@ -8,9 +8,11 @@
   }
   
   body {
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
     background: linear-gradient(135deg, #adaaaa, #483b3b);
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -29,7 +31,7 @@
   }
   
   a:hover,
-  .signup-link a:hover,
+  .registrace-link a:hover,
   .basic-nav-link:hover,
   .footer-nav a:hover {
     text-decoration: underline;
@@ -54,10 +56,12 @@
   /* =====================
      OBSAH STRÁNKY - LOGIN
      ===================== */
-  .container {
+  .kontejner {
     width: 90%;
     max-width: 1200px;
     background: rgba(70, 70, 70, 0.95);
+    margin: 70px auto 40px auto;
+    box-sizing: border-box;
     backdrop-filter: blur(8px);
     padding: 2rem;
     border-radius: 1rem;
@@ -80,8 +84,7 @@
     padding-bottom: 10px;
 }
   
-  .login-form h2,
-  h2 {
+  .login-formular h2{
     text-align: center;
     color: #ffffff;
     font-size: 1.8rem;
@@ -90,24 +93,24 @@
     padding-bottom: 10px;
   }
   
-  .login-form p {
+  .login-formular p {
     text-align: center;
     margin-bottom: 2rem;
     color: #bbbbbb;
   }
   
-  .input-group {
+  .input-skupina {
     margin-bottom: 1.5rem;
   }
   
-  .input-group label {
+  .input-skupina label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     color: #cccccc;
   }
   
-  .input-group input,
+  .input-skupina input,
   form#kalkulacka input[type="number"] {
     width: 100%;
     padding: 0.75rem;
@@ -119,14 +122,14 @@
     transition: border 0.3s, box-shadow 0.3s;
   }
   
-  .input-group input:focus {
+  .input-skupina input:focus {
     border-color: #ffb6c1;
     outline: none;
     box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
   }
   
-  .login-button,
-  .submit-button,
+  .login-tlacitko,
+  .submit-tlacitko,
   form#kalkulacka button {
     width: 100%;
     padding: 1rem;
@@ -140,13 +143,13 @@
     transition: background 0.3s;
   }
   
-  .login-button:hover,
-  .submit-button:hover,
+  .login-tlacitko:hover,
+  .submit-tlacitko:hover,
   form#kalkulacka button:hover {
     background: #ffa6b0;
   }
   
-  .signup-link {
+  .registrace-link {
     text-align: center;
     margin-top: 1.5rem;
     font-size: 0.9rem;
@@ -346,6 +349,7 @@
     gap: 20px;
     max-width: 1200px;
     margin: 20px auto;
+    margin-top: 100px;
   }
   
   section {

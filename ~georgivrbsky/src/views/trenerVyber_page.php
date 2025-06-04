@@ -41,7 +41,7 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
             echo "<option value='{$t["id"]}'>{$t["jmeno"]} {$t["prijmeni"]}</option>";
         }
         echo "</select><br><br>";
-        echo "<button type='submit' class='submit-button'>Potvrdit výběr</button>";
+        echo "<button type='submit' class='submit-tlacitko'>Potvrdit výběr</button>";
         echo "</form>";
     } else {
         echo "<p>Pro vaši preferenci nebyl nalezen žádný dostupný trenér.</p>";

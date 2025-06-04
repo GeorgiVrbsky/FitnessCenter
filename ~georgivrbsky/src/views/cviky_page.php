@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
 </header>
 
 <main class="centered-content">
-    <div class="container">
+    <div class="kontejner">
             <!-- Levá část: Výpis cviků -->
                 <h1 style="text-align: center;">Cviky pro plánování tréninku</h1>
 
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
                         <option value="6">6x týdně</option>
                         <option value="7">7x týdně</option>
                     </select>
-                    <button type="submit" class="submit-button">Dej mi plán</button>
+                    <button type="submit" class="submit-tlacitko">Dej mi plán</button>
                 </form>
 
                 

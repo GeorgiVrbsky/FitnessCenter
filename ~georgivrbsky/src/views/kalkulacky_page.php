@@ -11,7 +11,7 @@
         <header>
             <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
         </header>
-        <div class="container">
+        <div class="kontejner">
             <div class="nutrition-calculator">
                 <h1>Kompletní nutriční kalkulačka</h1>
                 <p class="intro">Zadejte své údaje a zjistěte optimální příjem kalorií, makroživin, BMI a doporučený příjem vody</p>

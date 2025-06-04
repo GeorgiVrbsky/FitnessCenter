@@ -85,22 +85,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section>
             <h2>Formulář pro nový týden</h2>
             <form method="POST" action="">
-                <div class="input-group">
+                <div class="input-skupina">
                     <label for="hmotnost">Váha (kg):</label>
                     <input type="number" name="hmotnost" id="hmotnost" required min="30" max="250" step="0.1" placeholder="např. 75.5">
                 </div>
 
-                <div class="input-group">
+                <div class="input-skupina">
                     <label for="obvod_pasu">Obvod pasu (cm):</label>
                     <input type="number" name="obvod_pasu" id="obvod_pasu" required min="30" max="200" step="0.1" placeholder="např. 85.0">
                 </div>
 
-                <div class="input-group">
+                <div class="input-skupina">
                     <label for="obvod_hrudniku">Obvod hrudníku (cm):</label>
                     <input type="number" name="obvod_hrudniku" id="obvod_hrudniku" required min="50" max="200" step="0.1" placeholder="např. 100.0">
                 </div>
 
-                <div class="input-group">
+                <div class="input-skupina">
                     <label for="vyska">Výška (cm):</label>
                     <input type="number" name="vyska" id="vyska" required min="100" max="250" step="1" placeholder="např. 180">
                 </div>

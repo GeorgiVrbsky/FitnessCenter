@@ -11,25 +11,25 @@
 </head>
 <body>
     
-    <div class="container" style="max-width: 500px;">
+    <div class="kontejner" style="max-width: 500px;">
         <h1 style="border-bottom:none; font-size: 3rem;">Fitness Center</h1>
-        <form class ="login-form" action="/~georgivrbsky/src/controllers/LoginController.php" method="post">
+        <form class ="login-formular" action="/~georgivrbsky/src/controllers/LoginController.php" method="post">
             <h2>Vítejte zpět</h2>
             <p>Přihlašte se do svého účtu</p>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="email"> Email</label>
                 <input type="email" id="email" name="email" placeholder="Ales@seznam.cz" required>
             </div>
 
-            <div class="input-group">
+            <div class="input-skupina">
                 <label for="heslo">Heslo:</label>
                 <input type="password" id="heslo" name="heslo" placeholder="********" required>
             </div>
 
-            <button type="submit" class="login-button">Přihlásit se</button>
+            <button type="submit" class="submit-tlacitko">Přihlásit se</button>
 
-            <div class="signup-link">
+            <div class="registrace-link">
                 Nemáte ještě účet? <a href="/~georgivrbsky/src/views/register_page.php">Registrujte se</a>
             </div>
             

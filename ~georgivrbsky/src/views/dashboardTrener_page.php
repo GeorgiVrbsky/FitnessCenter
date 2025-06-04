@@ -29,7 +29,7 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
     </header>
 
     <main class="centered-content">
-        <div class="container">
+        <div class="kontejner">
             <h1>Vaši cvičenci</h1>
 
             <?php
