@@ -68,6 +68,10 @@
     box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
   }
 
+  .kontejner h2{
+    text-align: center;
+  }
+
   .intro {
     text-align: center;
     margin-bottom: 1.5rem;
