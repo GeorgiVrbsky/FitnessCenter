@@ -130,7 +130,7 @@ function odstranitDiakritiku($text) {
                 </div>
 
                 <button type="button" class="submit-tlacitko" onclick="vypocitejKalorie()">Vypočítej</button>
-                <div id="vysledek"></div>
+                <div id="vysledek-kalkulacka-grid"></div>
             </form>
             <p><a href="/~georgivrbsky/src/views/kalkulacky_page.php">→ Přejít na více kalkulaček</a></p>
         </section>

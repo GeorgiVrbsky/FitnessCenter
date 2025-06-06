@@ -32,8 +32,7 @@
   
   a:hover,
   .registrace-link a:hover,
-  .basic-nav-link:hover,
-  .footer-nav a:hover {
+  .basic-nav-link:hover{
     text-decoration: underline;
   }
   
@@ -157,13 +156,6 @@
     text-align: center;
   }
 
-  .intro {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #bbbbbb;
-    font-size: 0.95rem;
-}
-
   h1 {
     text-align: center;
     color: #ffffff;
@@ -172,6 +164,8 @@
     border-bottom: 2px solid #ffb6c1;
     padding-bottom: 10px;
 }
+
+/*LOGIN FORMULAR A INPUT PRO FORMULAR*/
   
   .login-formular h2{
     text-align: center;
@@ -199,8 +193,7 @@
     color: #cccccc;
   }
   
-  .input-skupina input,
-  form#kalkulacka input[type="number"] {
+  .input-skupina input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #444;
@@ -217,9 +210,7 @@
     box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
   }
   
-  .login-tlacitko,
-  .submit-tlacitko,
-  form#kalkulacka button {
+  .submit-tlacitko {
     width: 100%;
     padding: 1rem;
     background: #ffb6c1;
@@ -232,9 +223,7 @@
     transition: background 0.3s;
   }
   
-  .login-tlacitko:hover,
-  .submit-tlacitko:hover,
-  form#kalkulacka button:hover {
+  .submit-tlacitko:hover{
     background: #ffa6b0;
   }
   
@@ -245,24 +234,7 @@
     color: #999999;
   }
   
-  /* =====================
-     FORMULÁŘE
-     ===================== */
-  
-  form#kalkulacka {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px;
-    background: #858585;
-  }
-  
-  form#kalkulacka label {
-    font-weight: bold;
-    color: #000000;
-    font-size: 1.2rem;
-  }
-  
-  #vysledek {
+  #vysledek-kalkulacka-grid {
     grid-column: span 2;
     margin-top: 10px;
     font-weight: bold;
@@ -270,160 +242,11 @@
     text-align: center;
     font-size: 1rem;
   }
-  
-
-
-
-  /*KALKULACKA STYLY */ 
-  
-  .calculator-form {
-            background: #858585;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 1rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: #000000;
-            font-weight: bold;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #444;
-            border-radius: 0.5rem;
-            background: #a0a0a0;
-            color: #fff;
-            font-size: 1rem;
-            transition: border 0.3s, box-shadow 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus {
-            border-color: #ffb6c1;
-            outline: none;
-            box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
-            background: #b0b0b0;
-        }
-
-        /* =====================
-           TLAČÍTKA
-           ===================== */
-           .calculate-btn {
-            width: 100%;
-            padding: 1rem;
-            background: #ffb6c1;
-            border: none;
-            border-radius: 0.5rem;
-            color: #000;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-        
-        .calculate-btn:hover {
-            background: #ffa6b0;
-        }
-        
-        /* =====================
-           VÝSLEDKY
-           ===================== */
-        .results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 2rem;
-        }
-        
-        .result-section {
-            background: #5a5a5a;
-            padding: 1.2rem;
-            border-radius: 0.8rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .result-section h2 {
-            color: #ffb6c1;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            border-bottom: 1px solid #ffb6c1;
-            padding-bottom: 0.5rem;
-        }
-        
-        .result-item {
-            margin-bottom: 0.8rem;
-        }
-        
-        .result-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .result-label {
-            font-weight: bold;
-            color: #ffffff;
-            display: block;
-            margin-bottom: 0.2rem;
-        }
-        
-        .result-value {
-            color: #ffb6c1;
-            font-size: 1.1rem;
-        }
-        
-        .highlight {
-            font-weight: bold;
-            color: #ffb6c1;
-            font-size: 1.2rem;
-        }
-  
-  /* =====================
-     DASHBOARD A SEKCÍ
-     ===================== */
-  body.dashboard-body {
-    height: auto;
-    display: block;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    margin-top: 100px;
-  }
-  
-
-  
-  
-  
-
-  
+ 
   /* =====================
      NAVIGACE
      ===================== */
-  .basic-navbar {
+  .navbar {
     background: rgba(70, 70, 70, 0.95);
     backdrop-filter: blur(8px);
     color: #ffffff;
@@ -438,25 +261,25 @@
     z-index: 100;
   }
   
-  .basic-navbar-brand a {
+  .navbar-nazev a {
     color: #ffffff;
     font-size: 1.5rem;
     font-weight: bold;
   }
   
-  .basic-nav-links {
+  .navbar-linky {
     display: flex;
     gap: 1.5rem;
     align-items: center;
   }
   
-  .basic-nav-link {
+  .navbar-link {
     color: #cccccc;
     font-size: 1.5rem;
     transition: color 0.3s ease;
   }
   
-  .basic-nav-logout {
+  .navbar-logout {
     color: red;
     font-weight: bold;
   }
@@ -512,20 +335,6 @@
   
   .klient li {
     color: #f1c40f;
-  }
-  
-  /* =====================
-     ZPRÁVY A PRÁZDNÝ STAV
-     ===================== */
-  .error-message {
-    color: #e74c3c;
-    font-size: 1.2rem;
-  }
-  
-  .no-klient {
-    color: #ecf0f1;
-    font-size: 1.2rem;
-    text-align: center;
   }
   
   /* =====================
@@ -589,33 +398,5 @@
 /* RESPONSIVE MENU */
 @media (max-width: 768px) { 
 
-  .basic-nav-links {
-    display: block;
-    flex-direction: column;
-    background: rgba(50, 50, 50, 0.95);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    padding: 1rem 0;
-    border-radius: 0 0 10px 10px;
-    z-index: 99;
-  }
-
-  .basic-nav-links.active {
-    display: flex;
-  }
-
-  .basic-nav-item {
-    text-align: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid #555;
-  }
-
-  .basic-navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
-
 
