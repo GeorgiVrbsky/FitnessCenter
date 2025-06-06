@@ -2,17 +2,20 @@
 session_start();
 include __DIR__ . '/../../src/database/db_conn.php';
 
+//kontrola session uzivatele
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
 
+//ziskani vsech parametru uzivatele
 $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne ASC", [$user_id]);
 
 $paramData = [];
 $maxWeek = 0;
 
+//ziskani maximalniho tydne, ktery uzivatel zaznamenal
 while ($row = $parametry->fetch_assoc()) {
     $paramData[] = $row;
     if ((int)$row['cislo_tydne'] > $maxWeek) {
@@ -20,13 +23,15 @@ while ($row = $parametry->fetch_assoc()) {
     }
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//pokud uzivatel potvrdi formular metodu post
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hmotnost = $_POST["hmotnost"] ?? '';
     $vyska = $_POST["vyska"] ?? '';
     $obvod_pasu = $_POST["obvod_pasu"] ?? '';
     $obvod_hrudniku = $_POST["obvod_hrudniku"] ?? '';
     $nextWeek = $maxWeek + 1;
 
+    //zkusime insertnout nove parametry, kde vezmeme maximalni tyden+1 a zaroven zapiseme user_idUser prihlaseneho uzivatele
     try {
         $insert = "INSERT INTO PARAMETRY (cislo_tydne, vyska, hmotnost, obvod_pasu, obvod_hrudniku, user_idUser) VALUES (?,?,?,?,?,?)";
         $params = [$nextWeek, $vyska, $hmotnost, $obvod_pasu, $obvod_hrudniku, $user_id];
@@ -45,18 +50,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Přehled parametrů</title>
+    <title>Týdenní postup | Fitness Center</title>
+    <meta name="description" content="Přehled již dosažených týdnů. Můžete se zde koukat na vaší historii a čeho jste už dosáhli.">
+    <meta name="keywords" content="Přehled, Týden, Správa, FitnessCenter"> 
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
+    <link rel="icon" href="/~georgivrbsky/public/components/balloon-heart-fill.svg" type="image/svg">
 </head>
 
-<body class="dashboard-body">
+<body>
 
-    <header>
-        <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
-    </header>
+    <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
 
-    <main>
-
+    <div class="dashboard" style="align-items: start;">
         <section>
             <h2>Týdenní přehled parametrů</h2>
             <div class="dashboard-grid">
@@ -81,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </section>
 
-        <!-- Formulář pro nový týden -->
         <section>
             <h2>Formulář pro nový týden</h2>
             <form method="POST" action="">
@@ -105,14 +109,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="number" name="vyska" id="vyska" required min="100" max="250" step="1" placeholder="např. 180">
                 </div>
 
-                <button type="submit" class="login-button">Odeslat</button>
+                <button type="submit" class="submit-tlacitko">Odeslat</button>
             </form>
         </section>
+    </div>
 
-
-            <a href="/~georgivrbsky/src/views/dashboard_page.php">
-                <button class="back-button">Zpět</button>
-            </a>
-    </main>
+    <?php include __DIR__ . '/../../public/components/footer.html'; ?>            
 </body>
 </html>
