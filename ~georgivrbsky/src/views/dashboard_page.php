@@ -113,17 +113,23 @@ function odstranitDiakritiku($text) {
 
         <section>
             <h2>Kalkulačka kalorií</h2>
-            <form id="kalkulacka">
+            <form>
+                <div class="input-skupina" style="margin-bottom: 5px ;">
                 <label for="hmotnost">Hmotnost (kg):</label>
                 <input type="number" id="hmotnost" name="hmotnost" required min="30" max="250" step="0.1" placeholder="např. 75.5">
+                </div>
 
+                <div class="input-skupina" style="margin-bottom: 10px;">
                 <label for="vyska">Výška (cm):</label>
                 <input type="number" id="vyska" name="vyska" required min="100" max="250" step="1" placeholder="např. 180">
+                </div>
 
+                <div class="input-skupina">
                 <label for="vek">Věk (roky):</label>
                 <input type="number" id="vek" name="vek" required min="10" max="100" step="1" placeholder="např. 25">
+                </div>
 
-                <button type="button" onclick="vypocitejKalorie()">Vypočítej</button>
+                <button type="button" class="submit-tlacitko" onclick="vypocitejKalorie()">Vypočítej</button>
                 <div id="vysledek"></div>
             </form>
             <p><a href="/~georgivrbsky/src/views/kalkulacky_page.php">→ Přejít na více kalkulaček</a></p>
