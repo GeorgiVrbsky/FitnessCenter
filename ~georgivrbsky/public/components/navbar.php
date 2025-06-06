@@ -15,8 +15,8 @@ $ROLE = $_SESSION['role'] ?? null;
     <ul class="basic-nav-links" id="nav-links">
         <?php if ($ROLE !== "Trener"): ?>
         <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/dashboard_page.php" class="basic-nav-link">Dashboard</a></li>
-        <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/cviky_page.php" class="basic-nav-link">Cviky</a></li>
         <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/prehled_page.php" class="basic-nav-link">Týdenní postup</a></li>
+        <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/cviky_page.php" class="basic-nav-link">Cviky</a></li>
         <li class="basic-nav-item"><a href="/~georgivrbsky/src/views/kalkulacky_page.php" class="basic-nav-link">Kalkulacky</a></li>
         <?php endif; ?>
 

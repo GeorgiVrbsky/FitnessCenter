@@ -52,6 +52,57 @@
   ul li:last-child {
     border-bottom: none;
   }
+
+  /*DASHBOARDD*/
+  
+  .dashboard{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* dvě sloupce */
+    gap: 20px; /* mezery mezi sekcemi */
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .dashboard > section{
+    background-color: #3c3c3c;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* širší karty */
+    gap: 16px; /* větší mezery mezi kartami */
+  }
+
+  .card {
+    background: #858585;
+    padding: 24px; /* větší vnitřní mezera */
+    border-radius: 0.75rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    min-height: 180px; /* zajistí dostatek místa i pro větší text */
+  }
+  
+  .card h3 {
+    color: #ffb6c1;
+    font-size: 1.6rem; /* větší nadpis */
+    text-align: center;
+    margin: 0 0 1rem;
+  }
+  
+  .card p {
+    color: #ffffff;
+    font-size: 1.1rem; /* větší text obsahu */
+    margin-bottom: 12px;
+  }
+  
+  .card strong {
+    color: #ffffff;
+    font-size: 1.1rem;
+  }
+
   
   /* =====================
      OBSAH STRÁNKY - LOGIN
@@ -356,45 +407,11 @@
     margin-top: 100px;
   }
   
-  section {
-    background: rgba(70, 70, 70, 0.95);
-    backdrop-filter: blur(8px);
-    padding: 20px;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
-  }
+
   
-  .dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* širší karty */
-    gap: 16px; /* větší mezery mezi kartami */
-  }
   
-  .card {
-    background: #858585;
-    padding: 24px; /* větší vnitřní mezera */
-    border-radius: 0.75rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-    min-height: 180px; /* zajistí dostatek místa i pro větší text */
-  }
   
-  .card h3 {
-    color: #ffb6c1;
-    font-size: 1.6rem; /* větší nadpis */
-    text-align: center;
-    margin: 0 0 1rem;
-  }
-  
-  .card p {
-    color: #ffffff;
-    font-size: 1.1rem; /* větší text obsahu */
-    margin-bottom: 12px;
-  }
-  
-  .card strong {
-    color: #ffffff;
-    font-size: 1.1rem;
-  }
+
   
   /* =====================
      NAVIGACE
