@@ -2,16 +2,19 @@
 include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
+//kontrola prihlaseni
 if (!isset($_SESSION["user_id"])) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
 
+//kontrola, jestli je uzivatel prihlaseny za trenera
 if ($_SESSION["role"] !== "Trener") {
     echo "Nemáte oprávnění k této stránce.";
     exit();
 }
 
+//ziskani udaju klientu, kteri maji prihlaseneho trenera
 $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = ?", [$_SESSION["user_id"]]);
 ?>
 
@@ -20,15 +23,17 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Trenérský Dashboard</title>
-    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css" />
+    <title>Trenérský Dashboard | Fitness Center</title>
+    <meta name="description" content="Dashboard trenéra, kde jsou všichni uživatelé společně se všemi potřebnými údaji.">
+    <meta name="keywords" content="Dashboard, Správa, Trenér, FitnessCenter"> 
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
+    <link rel="icon" href="/~georgivrbsky/public/components/balloon-heart-fill.svg" type="image/svg">
 </head>
-<body class="dashboard-body">
-    <header>
-        <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
-    </header>
+<body>
 
-    <main class="centered-content">
+        <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
+
+
         <div class="kontejner">
             <h1>Vaši cvičenci</h1>
 
@@ -67,6 +72,7 @@ $klienti = $db->query("SELECT id, jmeno, prijmeni FROM USER WHERE user_idUser = 
             }
             ?>
         </div>
-    </main>
+    
+    <?php include __DIR__ . '/../../public/components/footer.html'; ?>
 </body>
 </html>

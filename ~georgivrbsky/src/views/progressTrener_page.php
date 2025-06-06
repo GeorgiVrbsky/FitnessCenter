@@ -2,29 +2,35 @@
 include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
+//kontrola session
 if (!isset($_SESSION["user_id"])) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
     exit();
 }
 
+//kontrola role trenera
 if ($_SESSION["role"] !== "Trener") {
     echo "Nemáte oprávnění k této stránce.";
     exit();
 }
 
+//pokud byla pouzita metoda get
 if (!isset($_GET['user_id'])) {
     echo "Nezvolen žádný klient.";
     exit();
 }
 
+//ziskani id klienta z metody GET
 $klient_id = intval($_GET['user_id']);
 
+//ziskani jmena a prijmeni klienta
 $klient = $db->query("SELECT jmeno, prijmeni FROM USER WHERE id = ? AND user_idUser = ?", [$klient_id, $_SESSION["user_id"]])->fetch_assoc();
 if (!$klient) {
     echo "Klient nenalezen nebo nemáte oprávnění.";
     exit();
 }
 
+//ziskani vsech parametru zvoleneho klienta
 $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY cislo_tydne ASC", [$klient_id]);
 ?>
 
@@ -33,14 +39,17 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Progress klienta <?= htmlspecialchars($klient['jmeno'] . ' ' . $klient['prijmeni']) ?></title>
-    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css" />
+    <title>Progress klienta <?= htmlspecialchars($klient['jmeno'] . ' ' . $klient['prijmeni']) ?> | Fitness Center</title>
+    <meta name="description" content="Progress page, kde se trenér může podívat na specifické týdny klienta a na jejich progress.">
+    <meta name="keywords" content="Dashboard, Správa, Trenér, FitnessCenter"> 
+    <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
+    <link rel="icon" href="/~georgivrbsky/public/components/balloon-heart-fill.svg" type="image/svg">
 </head>
-<body class="dashboard-body">
-    <header>
+<body>
+
         <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
-    </header>
-    <main class="centered-content">
+
+
         <div class="kontejner">
             <h1>Progress klienta <?= htmlspecialchars($klient['jmeno'] . ' ' . $klient['prijmeni']) ?></h1>
             <a href="/~georgivrbsky/src/views/dashboardTrener_page.php">← Zpět na seznam cvičenců</a>
@@ -63,6 +72,6 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
             }
             ?>
         </div>
-    </main>
+
 </body>
 </html>
