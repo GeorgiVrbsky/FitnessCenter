@@ -147,12 +147,12 @@ function vypocitejKalorie() {
     const vek = parseFloat(document.getElementById('vek').value);
 
     if (!hmotnost || !vyska || !vek) {
-        document.getElementById('vysledek').innerText = "Vyplňte všechna pole.";
+        document.getElementById('vysledek-kalkulacka-grid').innerText = "Vyplňte všechna pole.";
         return;
     }
 
     const BMR = 10 * hmotnost + 6.25 * vyska - 5 * vek + 5;
-    document.getElementById('vysledek').innerText = `Odhadovaný denní kalorický příjem: ${Math.round(BMR)} kcal`;
+    document.getElementById('vysledek-kalkulacka-grid').innerText = `Odhadovaný denní kalorický příjem: ${Math.round(BMR)} kcal`;
 }
 </script>
 

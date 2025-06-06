@@ -9,5 +9,15 @@
 <body>
 
     <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
-    <p>kalkulacky_page</p>
+
+    <div class="kontejner">
+        
+    </div>
+
+
+
+
+
+    <?php include __DIR__ . '/../../public/components/footer.html'; ?>
+
 </body>
