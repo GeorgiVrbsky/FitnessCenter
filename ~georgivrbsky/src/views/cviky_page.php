@@ -44,12 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
     <title>Cviky</title>
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
 </head>
-<body class="dashboard-body">
-<header>
-    <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
-</header>
+<body>
 
-<main class="centered-content">
+    <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
+
     <div class="kontejner">
             <!-- Levá část: Výpis cviků -->
                 <h1 style="text-align: center;">Cviky pro plánování tréninku</h1>
@@ -79,10 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
                     <button class="back-button">Zpět</button>
                 </a>
     </div>
-</main>
 
-<footer>
     <?php include __DIR__ . '/../../public/components/footer.html'; ?>
-</footer>
+
 </body>
 </html>
