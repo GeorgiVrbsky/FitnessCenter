@@ -433,8 +433,80 @@
     margin: 0;
   }
 
-/* RESPONSIVE MENU */
-@media (max-width: 768px) { 
+/* ================
+   RESPONSIVE STYLING
+   ================ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    position: relative;
+  }
 
+  .navbar-nazev {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-linky {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cviky-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cviky-formular {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .radek-selekty {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .radek-selekty .input-skupina {
+    min-width: 100%;
+  }
+
+  .input-skupina {
+    margin-bottom: 1rem;
+  }
+
+  .kontejner {
+    padding: 1rem;
+  }
+
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  .submit-tlacitko {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .nutricni-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
 }
 
