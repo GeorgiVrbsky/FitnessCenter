@@ -312,7 +312,7 @@
   }
   
   /* =====================
-     OBSAH – CVIČENCI
+     DASHBOARD TRENER PROGRESS
      ===================== */
   .klient {
     background: #1a1a1a;
@@ -387,6 +387,44 @@
     margin: 0;
     word-wrap: break-word;
   }
+
+  /* KALKULACKY STYLING*/
+
+    .nutricni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .nutricni-formular {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  select {
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,<svg fill='gray' viewBox='0 0 24 24' width='20' height='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  font-size: 14px;
+}
+
+.radek-selekty {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* aby to bylo responzivní */
+  margin-bottom: 20px;
+}
+
+.radek-selekty .input-skupina {
+  flex: 1; /* všechny stejně široké */
+  min-width: 200px; /* aby se nerozbilo na úzkých obrazovkách */
+}
   
 /*STYLING NA SIPECKY U NUMBER INPUT TYPE*/
   input[type=number]::-webkit-inner-spin-button,

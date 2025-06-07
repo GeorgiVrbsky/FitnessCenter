@@ -16,7 +16,7 @@ $user = $user_stmt->fetch_assoc();
 // Získání trenéra
 $trener = null;
 if (!empty($user["user_idUser"])) {
-    $trener_stmt = $db->query("SELECT jmeno, prijmeni FROM USER WHERE id = ?", [$user["user_idUser"]]);
+    $trener_stmt = $db->query("SELECT * FROM USER WHERE id = ?", [$user["user_idUser"]]);
     $trener = $trener_stmt->fetch_assoc();
 }
 
@@ -90,6 +90,8 @@ function odstranitDiakritiku($text) {
                     //$PATH = odstranitDiakritiku($PATH);
                     echo "<p><strong>{$trener['jmeno']} {$trener['prijmeni']}</strong></p>";
                     echo "<img src=\"" . htmlspecialchars($PATH) . "\" alt=\"Trener fotka\" style=\"max-width: 50%; height: auto; border-radius: 8px;\">";
+                    echo "<p>Telefon: {$trener['telefon']}</p>";
+                    echo "<p>Email: {$trener['email']}</p>";
                 } else {
                     echo "<p>Nemáte přiděleného trenéra.</p>";
                 }
