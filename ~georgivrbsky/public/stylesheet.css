@@ -425,6 +425,37 @@
   flex: 1; /* všechny stejně široké */
   min-width: 200px; /* aby se nerozbilo na úzkých obrazovkách */
 }
+
+/*VYBER TRENERA STYLING*/
+
+.grid-treneri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+  gap: 20px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.trener-card {
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.trener-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.trener-card.selected {
+  border-color: #ffb6c1;
+  background-color: #5b5858;
+}
+
+
   
 /*STYLING NA SIPECKY U NUMBER INPUT TYPE*/
   input[type=number]::-webkit-inner-spin-button,
@@ -507,6 +538,21 @@
   .site-footer {
     font-size: 0.9rem;
     padding: 1rem;
+  }
+
+  .grid-treneri {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .trener-card {
+    max-width: 300px;
+    padding: 8px;
+  }
+
+  .trener-card img {
+    max-width: 100%;
+    height: auto;
   }
 }
 

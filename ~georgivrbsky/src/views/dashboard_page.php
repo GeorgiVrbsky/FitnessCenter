@@ -20,8 +20,17 @@ if (!empty($user["user_idUser"])) {
     $trener = $trener_stmt->fetch_assoc();
 }
 
-// Získání cviků podle Role
-$cviky = $db->query("SELECT nazev FROM CVIKY WHERE role_idRole = ? ORDER BY RAND() LIMIT 7", [$user["role_idRole"]]);
+
+//select podle hashe pro kazdeho uzivatele jiny
+$tyden = date('o-W'); // např. 2025-23 (23. týden roku 2025)
+
+$cviky = $db->query("
+    SELECT nazev 
+    FROM CVIKY 
+    WHERE role_idRole = ? 
+    ORDER BY MD5(CONCAT(?, ?, id)) 
+    LIMIT 7
+", [$user["role_idRole"], $user["id"], $tyden]);
 
 // Získání týdenních parametrů
 $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUser = ? ORDER BY cislo_tydne DESC LIMIT 4", [$user_id]);

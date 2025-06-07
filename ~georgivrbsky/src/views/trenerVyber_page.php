@@ -2,6 +2,8 @@
 include __DIR__ . '/../../src/database/db_conn.php';
 session_start();
 
+
+//funkce na odstraneni diakritiky pro ziskani obrazku na zaklade jmena
 function odstranitDiakritiku($text) {
     $znaky = [
         'á'=>'a', 'č'=>'c', 'ď'=>'d', 'é'=>'e', 'ě'=>'e', 'í'=>'i',
@@ -14,6 +16,7 @@ function odstranitDiakritiku($text) {
     return strtr($text, $znaky);
 }
 
+//kontrola session
 $user_id = $_SESSION["user_id"] ?? null;
 if (!$user_id) {
     header("Location: /~georgivrbsky/src/views/login_page.php");
@@ -53,40 +56,16 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Výběr trenéra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výběr trenéra | Fitness Center</title>
+    <meta name="description" content="Výběr trenéra podle vašich zvolených preferencí, jednodušše a rychle.">
+    <meta name="keywords" content="trenér, výběr, FitnessCenter"> 
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
-    <style>
-        .grid-treneri {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .trener-card {
-            text-align: center;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            padding: 10px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .trener-card img {
-            width: 100%;
-            border-radius: 8px;
-        }
-        .trener-card.selected {
-            border-color: green;
-            background-color: #eaffea;
-        }
-        .submit-button {
-            margin-top: 20px;
-            display: block;
-        }
-    </style>
+    <link rel="icon" href="/~georgivrbsky/public/components/balloon-heart-fill.svg" type="image/svg">
 </head>
 <body>
     <div class="kontejner">
-        <h2>Vyberte si trenéra:</h2>
+        <h1>Vyberte si trenéra:</h1>
 
         <?php if (count($treneri) === 0): ?>
             <p>Pro vaši preferenci nebyl nalezen žádný dostupný trenér.</p>
@@ -107,29 +86,40 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
                         </div>
                     <?php endforeach; ?>
                 </div>
+                
                 <button type="submit" class="submit-tlacitko">Potvrdit výběr</button>
+
             </form>
         <?php endif; ?>
     </div>
 
-    <script>
-        const cards = document.querySelectorAll('.trener-card');
-        const hiddenInput = document.getElementById('trener_id');
+<script>
+    // Získání formuláře a skrytého inputu, do kterého se uloží ID vybraného trenéra
+    const form = document.getElementById('trener-form');
+    const hiddenInput = document.getElementById('trener_id');
 
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                cards.forEach(c => c.classList.remove('selected'));
-                card.classList.add('selected');
-                hiddenInput.value = card.dataset.id;
-            });
-        });
+    // Při kliknutí do oblasti s trenéry kontrolujeme, zda bylo kliknuto na kartu trenéra
+    document.querySelector('.grid-treneri').addEventListener('click', e => {
+        const card = e.target.closest('.trener-card'); // Najde nejbližší element s třídou .trener-card
+        if (!card) return; // Pokud nebyla kliknuta karta, nic nedělej
 
-        document.getElementById('trener-form').addEventListener('submit', function (e) {
-            if (!hiddenInput.value) {
-                e.preventDefault();
-                alert('Vyberte prosím trenéra kliknutím na jeho fotku.');
-            }
-        });
-    </script>
+        // Odstraníme třídu 'selected' ze všech karet, aby nebylo více označených zároveň
+        document.querySelectorAll('.trener-card').forEach(c => c.classList.remove('selected'));
+
+        // Označíme kliknutou kartu jako vybranou
+        card.classList.add('selected');
+
+        // Do skrytého inputu uložíme ID vybraného trenéra (z data atributu)
+        hiddenInput.value = card.dataset.id;
+    });
+
+    // Pokud nebyl zvolen trenér po zmáčknutí submit, ukáže se upozornění
+    form.addEventListener('submit', e => {
+        if (!hiddenInput.value) {
+            e.preventDefault(); // Zamezí odeslání formuláře
+            alert('Vyberte prosím trenéra kliknutím na jeho fotku.');
+        }
+    });
+</script>
 </body>
 </html>
