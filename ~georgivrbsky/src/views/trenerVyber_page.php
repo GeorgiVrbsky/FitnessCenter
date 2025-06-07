@@ -58,7 +58,7 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
     <style>
         .grid-treneri {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
@@ -107,7 +107,7 @@ if ($role_res && $row = $role_res->fetch_assoc()) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button type="submit" class="submit-button">Potvrdit výběr</button>
+                <button type="submit" class="submit-tlacitko">Potvrdit výběr</button>
             </form>
         <?php endif; ?>
     </div>
