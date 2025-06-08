@@ -82,6 +82,9 @@
   <p><strong>Sacharidy:</strong> <span id="sacharid"></span> g</p>
 </div>
 
+<a href="/~georgivrbsky/src/views/dashboard_page.php" class="back-link" style="margin-top: 50px;">
+    <button class="back-button">Zpět</button>
+</a>
 </div>
 
 <?php include __DIR__ . '/../../public/components/footer.html'; ?>

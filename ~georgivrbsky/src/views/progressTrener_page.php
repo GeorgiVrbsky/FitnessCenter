@@ -24,7 +24,7 @@ if (!isset($_GET['user_id'])) {
 $klient_id = intval($_GET['user_id']);
 
 //ziskani jmena a prijmeni klienta
-$klient = $db->query("SELECT jmeno, prijmeni FROM USER WHERE id = ? AND user_idUser = ?", [$klient_id, $_SESSION["user_id"]])->fetch_assoc();
+$klient = $db->query("SELECT jmeno, prijmeni, email, telefon FROM USER WHERE id = ? AND user_idUser = ?", [$klient_id, $_SESSION["user_id"]])->fetch_assoc();
 if (!$klient) {
     echo "Klient nenalezen nebo nemáte oprávnění.";
     exit();
@@ -39,7 +39,7 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Progress klienta <?= htmlspecialchars($klient['jmeno'] . ' ' . $klient['prijmeni']) ?> | Fitness Center</title>
+    <title>Progress klienta | Fitness Center</title>
     <meta name="description" content="Progress page, kde se trenér může podívat na specifické týdny klienta a na jejich progress.">
     <meta name="keywords" content="Dashboard, Správa, Trenér, FitnessCenter"> 
     <link rel="stylesheet" href="/~georgivrbsky/public/stylesheet.css">
@@ -52,6 +52,8 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
 
         <div class="kontejner">
             <h1>Progress klienta <?= htmlspecialchars($klient['jmeno'] . ' ' . $klient['prijmeni']) ?></h1>
+            <h1 style="border-bottom: none;"><?= htmlspecialchars("email: " . $klient['email'])?></h1>
+            <h1 style="border-bottom: none;"><?= htmlspecialchars("Telefon: " . $klient['telefon'])?></h1>
             <a href="/~georgivrbsky/src/views/dashboardTrener_page.php">← Zpět na seznam cvičenců</a>
 
             <?php
@@ -72,6 +74,8 @@ $parametry = $db->query("SELECT * FROM PARAMETRY WHERE user_idUSER = ? ORDER BY 
             }
             ?>
         </div>
+
+        <?php include __DIR__ . '/../../public/components/footer.html'; ?>
 
 </body>
 </html>

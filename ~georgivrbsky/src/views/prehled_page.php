@@ -112,6 +112,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button type="submit" class="submit-tlacitko">Odeslat</button>
             </form>
         </section>
+
+        <a href="/~georgivrbsky/src/views/dashboard_page.php" class="back-link">
+                    <button class="back-button">Zpět</button>
+            </a>
     </div>
 
     <?php include __DIR__ . '/../../public/components/footer.html'; ?>            

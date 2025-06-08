@@ -11,6 +11,7 @@ $ROLE = $_SESSION['role'] ?? null;
 <nav class="navbar">
     <div class="navbar-nazev">
         <span style="font-size: 1.7rem;">Fitness Center</span>
+        <img src="/~georgivrbsky/public/components/balloon-heart-fill.svg" alt="logo" style="width:25px; height: 25px;">
     </div>
     <ul class="navbar-linky">
         <?php if ($ROLE !== "Trener"): ?>

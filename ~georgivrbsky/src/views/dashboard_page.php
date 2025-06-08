@@ -64,8 +64,9 @@ function odstranitDiakritiku($text) {
 <body>
 
     <?php include __DIR__ . '/../../public/components/navbar.php'; ?>
-
+    <h1 style="max-width: 800px; margin: 0 auto; font-size: 3.5vh;">Dashboard</h1>
     <div class="dashboard">
+        
 
         <section>
             <h2>Týdenní postup</h2>
@@ -123,7 +124,7 @@ function odstranitDiakritiku($text) {
         </section>
 
         <section>
-            <h2>Kalkulačka kalorií</h2>
+            <h2>Kalkulačka BMI</h2>
             <form>
                 <div class="input-skupina" style="margin-bottom: 5px ;">
                 <label for="hmotnost">Hmotnost (kg):</label>
@@ -135,13 +136,8 @@ function odstranitDiakritiku($text) {
                 <input type="number" id="vyska" name="vyska" required min="100" max="250" step="1" placeholder="např. 180">
                 </div>
 
-                <div class="input-skupina">
-                <label for="vek">Věk (roky):</label>
-                <input type="number" id="vek" name="vek" required min="10" max="100" step="1" placeholder="např. 25">
-                </div>
-
                 <button type="button" class="submit-tlacitko" onclick="vypocitejKalorie()">Vypočítej</button>
-                <div id="vysledek-kalkulacka-grid"></div>
+                <div id="vysledek-kalkulacka-grid" style="font-size: 2vh;"></div>
             </form>
             <p><a href="/~georgivrbsky/src/views/kalkulacky_page.php">→ Přejít na více kalkulaček</a></p>
         </section>
@@ -155,15 +151,22 @@ function odstranitDiakritiku($text) {
 function vypocitejKalorie() {
     const hmotnost = parseFloat(document.getElementById('hmotnost').value);
     const vyska = parseFloat(document.getElementById('vyska').value);
-    const vek = parseFloat(document.getElementById('vek').value);
+    const vysledek = document.getElementById('vysledek-kalkulacka-grid');
 
-    if (!hmotnost || !vyska || !vek) {
-        document.getElementById('vysledek-kalkulacka-grid').innerText = "Vyplňte všechna pole.";
+    if (!hmotnost || !vyska) {
+        vysledek.innerText = "Vyplňte všechna pole.";
         return;
     }
 
-    const BMR = 10 * hmotnost + 6.25 * vyska - 5 * vek + 5;
-    document.getElementById('vysledek-kalkulacka-grid').innerText = `Odhadovaný denní kalorický příjem: ${Math.round(BMR)} kcal`;
+    const BMI = (hmotnost * 10000)/(vyska * vyska);
+    vysledek.innerText = `Vaše BMI: ${Math.round(BMI)}`;
+
+    if(BMI>25 || BMI < 18){
+        vysledek.style.color = "red";
+    }
+    else{
+        vysledek.style.color = "chartreuse";
+    }
 }
 </script>
 

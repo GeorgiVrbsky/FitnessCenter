@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset( $_POST["pocetDni"])) {
                 
             <a href="/~georgivrbsky/src/views/dashboard_page.php" class="back-link">
                     <button class="back-button">Zpět</button>
-                </a>
+            </a>
     </div>
 
     <?php include __DIR__ . '/../../public/components/footer.html'; ?>

@@ -181,6 +181,12 @@
     margin-bottom: 2rem;
     color: #bbbbbb;
   }
+
+  input::placeholder {
+  color: rgb(225, 225, 225);
+  font-style: italic;
+  opacity: 0.8;
+}
   
   .input-skupina {
     margin-bottom: 1.5rem;
@@ -190,7 +196,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: #cccccc;
+    color: #ffffff;
   }
   
   .input-skupina input {
@@ -287,11 +293,18 @@
   /* =====================
      TLAČÍTKO ZPĚT
      ===================== */
+
+  .back-link {
+    display: block;
+    text-align: left;
+    margin-top: 1.5rem;
+}   
+
   .back-button {
-    box-shadow: 8px 6px 20px -1px #771bc2;
-    background: #c754b6;
+    box-shadow: 8px 6px 20px -1px #934acf;
+    background: #d87682;
     border-radius: 28px;
-    border: 1px solid #ab19ab;
+    border: 1px solid #ec88ec;
     display: inline-block;
     cursor: pointer;
     color: #fafafa;
@@ -303,7 +316,7 @@
   }
   
   .back-button:hover {
-    background: #db37d6;
+    background: #ff87fb;
   }
   
   .back-button:active {
@@ -424,6 +437,14 @@
 .radek-selekty .input-skupina {
   flex: 1; /* všechny stejně široké */
   min-width: 200px; /* aby se nerozbilo na úzkých obrazovkách */
+}
+
+#vysledky p {
+  font-size: 1.7vh;
+}
+
+#vysledky span {
+  text-decoration: underline;
 }
 
 /*VYBER TRENERA STYLING*/
